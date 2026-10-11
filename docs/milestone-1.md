@@ -2,7 +2,7 @@
 
 Requisitos consultados en el [campus de 4Geeks](https://learn.4geeks.com/es/main-cohort/spain-aie-pt-5/syllabus/working-with-ai-coding-agents-v3/project/ai-eng-milestone-ai-driven-engineering?moduleId=4).
 Esta guía relaciona los requisitos con los archivos del proyecto;
-no acredita una PR ni una entrega en el campus.
+la PR de entrega se enlaza abajo y la presentación en el campus sigue pendiente.
 
 ## Archivos de infraestructura
 
@@ -51,15 +51,18 @@ Antes del commit de entrega se repitieron lint/build y las cuatro pruebas SEO
 en local y Codespaces. Se revisaron ambas apps a 1920px y 390px, sin overflow
 ni errores de consola observados; menú móvil, filtros, búsqueda y detalle comprobados.
 
-## Entrega pendiente
+## Entrega
 
-Fork creado: [rogerdevmtz/ai-engineering-trackflow](https://github.com/rogerdevmtz/ai-engineering-trackflow).
+Fork: [rogerdevmtz/ai-engineering-trackflow](https://github.com/rogerdevmtz/ai-engineering-trackflow).
 Origin apunta al fork en local y Codespaces; upstream conserva el original de 4Geeks.
 
-1. Seguir AGENTS.md antes del commit final en `feature/agent-memory-bank`.
-2. Abrir PR hacia `main` del fork con capturas de las dos apps y enlace directo
-   a AGENTS.md en la rama entregada. Comprobar que el revisor puede abrirlos.
-3. Entregar la URL de la PR en el campus.
+Se siguió AGENTS.md para preparar el commit `bf015a8` en
+`feature/agent-memory-bank`. La [PR #1 de entrega](https://github.com/rogerdevmtz/ai-engineering-trackflow/pull/1)
+está abierta hacia `main` del fork, con las capturas de las dos apps y
+[enlace directo a AGENTS.md](https://github.com/rogerdevmtz/ai-engineering-trackflow/blob/feature/agent-memory-bank/AGENTS.md).
+No se ha fusionado.
+
+**Pendiente:** el estudiante debe entregar la URL de la PR en el campus.
 
 El orden histórico de preparación antes del código no puede acreditarse
 solo con el árbol actual. Las casillas del campus no sustituyen la entrega.

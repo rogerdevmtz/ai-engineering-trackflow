@@ -39,12 +39,15 @@ En local y Codespaces, origin apunta al fork y upstream conserva
 `4GeeksAcademy/ai-engineering-trackflow`. Se mantuvieron la rama
 `feature/agent-memory-bank` y los cambios de trabajo.
 
-## Entrega pendiente
+## Entrega
 
-1. Ejecutar el procedimiento de AGENTS.md y hacer el commit final autorizado
-   en `feature/agent-memory-bank`.
-2. Abrir PR hacia `main` del fork, con capturas de ambas apps y enlace a AGENTS.md.
-3. Entregar la URL de la PR en el campus. No hay entrega registrada en esta revisión.
+- Fork personal conectado en local y Codespaces.
+- Commit del hito `bf015a8` subido en `feature/agent-memory-bank`.
+- [PR #1](https://github.com/rogerdevmtz/ai-engineering-trackflow/pull/1)
+  abierta hacia `main` del fork, con capturas de ambas apps y enlace directo
+  a AGENTS.md. No se ha fusionado.
+- Pendiente: el estudiante debe entregar la URL de la PR en el campus.
+  No hay entrega registrada en esta revisión.
 
 ## Limitaciones conocidas
 
@@ -57,4 +60,4 @@ En local y Codespaces, origin apunta al fork y upstream conserva
 - El orden histórico de configuración antes del código no se acredita con
   el árbol actual; no afirmarlo como comprobado.
 
-Próximo paso: revisar el contenido preparado, hacer el commit y abrir la PR del hito.
+Próximo paso: el estudiante revisa la PR #1 y entrega su URL en el campus.
