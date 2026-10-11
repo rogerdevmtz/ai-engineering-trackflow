@@ -7,6 +7,10 @@ corepack prepare pnpm@latest --activate || true
 
 python -m pip install --upgrade pip uv
 
-uv sync
+if [ -f pyproject.toml ]; then
+  uv sync
+else
+  echo "No hay pyproject.toml; se omite uv sync."
+fi
 
 echo "Devcontainer setup complete."

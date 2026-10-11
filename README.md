@@ -49,13 +49,20 @@ You are building **one company** across many milestones and projects. Each top-l
 
 ---
 
-## Current status of the template
+## Current TrackFlow status
 
-> 💡 This repository currently provides a **base folder structure and documentation skeleton** only. It does not include runnable apps or global scripts yet.
->
-> - `CONTEXT.md` is a placeholder and must be replaced with your assigned company context.
-> - There is no root `AGENTS.md` yet.
-> - Shared package metadata exists in `packages/shared/package.json` (`@repo/shared-types`), but no workspace runner is configured at root.
+The TrackFlow briefing is in [CONTEXT.md](CONTEXT.md). The project includes
+[active memory](memory-bank/projectbrief.md), [AGENTS.md](AGENTS.md), rules
+and a maintenance skill under `.agents/`.
+
+- [Website](uis/website/README.md): corporate site at `/`, port 5173.
+- [Backoffice](uis/backoffice/README.md): demo operations at `/`, port 5174.
+- [Visual identity](uis/STYLE_GUIDE.md): shared guide and brand tokens.
+- [Milestone 1](docs/milestone-1.md): requirements, evidence and pending Git delivery.
+
+Install and run each application from its own directory with pnpm.
+This milestone has no root workspace runner, backend or live integrations.
+Template directories remain available for later modules.
 
 ---
 

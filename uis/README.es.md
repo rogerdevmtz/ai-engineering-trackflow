@@ -13,3 +13,11 @@ Organiza `uis/` por **distintas áreas de la compañía** — cada subcarpeta ag
 - **Recomendación**: documenta en este archivo (o en sub-READMEs) las aplicaciones que vayas añadiendo, su objetivo, tecnología usada y cómo ejecutarlas.
 
 > _These instructions are also available in [English](./README.md)._
+
+## Aplicaciones de TrackFlow
+
+- [Website](website/README.md): web corporativa, desarrollo 5173.
+- [Backoffice](backoffice/README.md): entrada de operaciones demostrativa,
+  desarrollo 5174; layout independiente y ejemplos ficticios identificados.
+- [Identidad visual](STYLE_GUIDE.md): guía común; tokens en `shared/brand`.
+- [Verificación del primer hito](../docs/milestone-1.md): evidencias y entrega pendiente.

@@ -49,13 +49,20 @@ Estás construyendo **una sola empresa** a lo largo de muchos hitos y proyectos.
 
 ---
 
-## Estado actual de la plantilla
+## Estado actual de TrackFlow
 
-> 💡 Actualmente el repositorio ofrece solo una **estructura base de carpetas y documentación**. Todavía no incluye aplicaciones ejecutables ni scripts globales en la raíz.
->
-> - `CONTEXT.md` es un placeholder y debe sustituirse por el contexto de la empresa asignada.
-> - No existe todavía un `AGENTS.md` en la raíz.
-> - Existe metadata del paquete compartido en `packages/shared/package.json` (`@repo/shared-types`), pero aún no hay runner de workspace en raíz.
+El briefing de TrackFlow está en [CONTEXT.md](CONTEXT.md). El proyecto incluye
+[memoria activa](memory-bank/projectbrief.md), [AGENTS.md](AGENTS.md), reglas
+y una skill de mantenimiento en `.agents/`.
+
+- [Website](uis/website/README.md): web corporativa en `/`, puerto 5173.
+- [Backoffice](uis/backoffice/README.md): operaciones de demostración en `/`, puerto 5174.
+- [Identidad visual](uis/STYLE_GUIDE.md): guía común y tokens compartidos.
+- [Hito 1](docs/milestone-1.md): requisitos, evidencias y entrega Git pendiente.
+
+Las aplicaciones se instalan y ejecutan desde sus propias carpetas con pnpm.
+No hay runner global, backend ni integraciones reales en este hito.
+Las carpetas de plantilla se conservan para los siguientes módulos.
 
 ---
 
