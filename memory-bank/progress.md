@@ -1122,3 +1122,24 @@ ya fueron comprobadas en navegador en las revisiones fechadas anteriores.
 CONTEXT.md intacto; no incluir builds, dependencias ni informes temporales.
 Pendientes de comprobar en esta fase: push, sincronización del Codespace
 super-engine-6vvqp55594jx2r9gj, preview pública y PageSpeed.
+
+## 16/10/2026 — Commit y rama del segundo hito subidos
+
+Commit 755cf92 (feat: complete TrackFlow public website milestone) creado y
+subido a origin/codex/hito-2-web-publica. HEAD local y remoto coinciden.
+Incluye 39 rutas revisadas, con dos eliminaciones de recursos retirados;
+no incluye CONTEXT.md, company-choice.md, .devcontainer, dist, node_modules
+ni informes/capturas temporales. Diff staged revisado y diff --check correcto
+tras retirar espacios finales en dos líneas de licencias OFL, sin alterar
+su contenido legal. Comprobaciones de código válidas de la tarea anterior:
+lint, 14 pruebas y build; código sin cambios posteriores.
+
+Codespaces localizado en GitHub: super engine / super-engine-6vvqp55594jx2r9gj,
+mostrado en feature/agent-memory-bank y sin cambios. API Codespaces devolvió
+403 con la credencial disponible. Al abrirlo por UI se creó una pestaña sin
+URL válida; la política del navegador impidió adquirirla y prohibió eludir
+el bloqueo. Se pidió al estudiante abrir el Codespace manualmente y esperar
+al editor. No se actualizó el remoto ni se abrió un puerto público. PageSpeed
+y sus capturas siguen pendientes, sin resultados inventados. Próximo paso:
+continuar desde el editor abierto, comprobar git status y sincronizar la rama,
+levantar build/preview pública, PageSpeed móvil/escritorio y evidencias en PR.

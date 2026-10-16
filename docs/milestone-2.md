@@ -54,7 +54,7 @@ completo del formulario en navegador móvil y escritorio.
 | Resolver beneficios literales | Exclusividad binacional y visibilidad total no acreditadas por briefing local; se usan afirmaciones prudentes. Cifra aproximada ~130 en vez de +130. |
 | Accesibilidad fuera del alcance verificado | Revisión local de teclado, foco, ARIA, errores, movimiento reducido y colores forzados completada. Lector de pantalla real, contraste exhaustivo de imágenes y móvil físico pendientes. Carrusel sin pausa conserva la limitación WCAG 2.2.2 por decisión expresa. |
 | Evidencia de evaluación | CLI local: 95 móvil / 100 escritorio. Falta ejecutar primero PageSpeed Insights sobre la URL pública de Codespaces y guardar las capturas. Solo si PageSpeed no alcanza Codespaces, usar Lighthouse de Chrome DevTools o su extensión. |
-| Publicación y entrega | PR #1 integrada en main (f0d6d9c). Rama local codex/hito-2-web-publica creada desde main actualizado, conservando todos los cambios. Lint, 14 pruebas y build correctos. Segundo hito todavía sin commit/push ni sincronización con Codespaces. Pendientes subida revisada, URL pública y PR con captura. |
+| Publicación y entrega | PR #1 integrada en main (f0d6d9c). Rama local codex/hito-2-web-publica creada desde main actualizado, conservando todos los cambios. Lint, 14 pruebas y build correctos. Commit 755cf92 subido a origin/codex/hito-2-web-publica con 39 rutas revisadas. Pendientes sincronización con Codespaces, URL pública y PR con captura. |
 
 Tailwind: convencionales migrados; permanecen excepciones técnicas documentadas
 para movimiento/gráficos/foco. Verificar su justificación si el docente exige
@@ -369,3 +369,11 @@ fuera del repositorio. CONTEXT.md y demás archivos protegidos intactos.
 
 Esta tarea repitió lint, las 14 pruebas y build correctamente. No repitió la
 revisión visual ni Lighthouse: se conservan sus resultados anteriores fechados.
+
+## Subida verificada — 16/10/2026
+
+Commit 755cf92 subido a la rama del segundo hito; archivos protegidos intactos.
+No se han subido informes ni capturas exploratorias. Codespaces API devolvió
+403; su apertura en navegador quedó bloqueada por pestaña sin URL válida.
+Se requiere que el estudiante abra el editor para continuar. Sincronización
+remota, puerto público, PageSpeed y capturas todavía pendientes.

@@ -271,7 +271,8 @@ Codespace con publicar la rama o entregar en el campus.
 
 PR #1 integrada en main y confirmada fusionada/cerrada el 16/10/2026.
 La rama local `codex/hito-2-web-publica` parte de main actualizado (f0d6d9c),
-conservando el trabajo del segundo hito todavía sin commit ni push.
+El trabajo del segundo hito se subió en el commit `755cf92`; la actualización
+del Codespace y la medición pública siguen pendientes.
 
 Seguir el orden de evaluación del enunciado: subir el código revisado, ejecutar
 la web en Codespaces con puerto público y usar primero PageSpeed Insights sobre
