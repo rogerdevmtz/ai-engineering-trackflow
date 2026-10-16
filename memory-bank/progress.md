@@ -1143,3 +1143,27 @@ al editor. No se actualizó el remoto ni se abrió un puerto público. PageSpeed
 y sus capturas siguen pendientes, sin resultados inventados. Próximo paso:
 continuar desde el editor abierto, comprobar git status y sincronizar la rama,
 levantar build/preview pública, PageSpeed móvil/escritorio y evidencias en PR.
+
+## 16/10/2026 — Codespaces sincronizado; PageSpeed descartado
+
+En la tarea anterior se abrió directamente la URL válida de super engine,
+se comprobó Git limpio, se actualizó main y se cambió a codex/hito-2-web-publica
+en 1ea867d. Instalación frozen-lockfile, lint, 14 pruebas y build correctos.
+CONTEXT.md conserva hash 5fb916baf4dd5ce1ecb6849c3eb154b42ad4acd8 antes/después,
+igual al local. Web pública en https://super-engine-6vvqp55594jx2r9gj-3000.app.github.dev/.
+Solo 3000 público; 5678/8000 privados. CLI GitHub temporal en /tmp, fuera del
+repo, ante fallo PendingMigrationError de la extensión de túneles.
+
+Landing pública revisada a 1440 y 390px; sin overflow móvil observado. CTA
+al formulario, vacíos bloqueados y tres pasos móviles hasta éxito simulado
+comprobados con datos ficticios; sin errores/avisos de consola de la web.
+PageSpeed móvil/escritorio auditó el aviso GitHub; 100/99 descartados y no
+atribuidos a TrackFlow. Capturas de incidencia y QA fuera del repositorio.
+Control de Windows se detuvo por no poder verificar URL al intentar DevTools.
+
+En esta tarea se contrastó nuevamente el enunciado, se actualizó el diagnóstico
+y se confirmó CONTEXT.md intacto, también en diff de rama respecto a main.
+Se intentó F12 con el navegador; el panel no está expuesto al control de página.
+Se pidió al estudiante abrir Lighthouse manualmente. Siguen pendientes las
+capturas válidas, PR con URL/evidencia, entrega y merge posterior a aprobación.
+Limitaciones de contenido/accesibilidad documentadas siguen vigentes.

@@ -270,9 +270,14 @@ requiere verificar el fork del estudiante; no confundir sincronizar el
 Codespace con publicar la rama o entregar en el campus.
 
 PR #1 integrada en main y confirmada fusionada/cerrada el 16/10/2026.
-La rama local `codex/hito-2-web-publica` parte de main actualizado (f0d6d9c),
-El trabajo del segundo hito se subió en el commit `755cf92`; la actualización
-del Codespace y la medición pública siguen pendientes.
+La rama `codex/hito-2-web-publica` parte de main actualizado (f0d6d9c).
+Implementación subida en `755cf92`; Codespaces actualizado a `1ea867d`, con
+instalación, lint, 14 pruebas y build correctos. Preview pública:
+https://super-engine-6vvqp55594jx2r9gj-3000.app.github.dev/
+
+PageSpeed auditó el aviso de GitHub en ambos perfiles; esas notas se descartan.
+Pendientes capturas válidas de Lighthouse DevTools y PR con URL/evidencia.
+La URL requiere que el Codespace y el servidor permanezcan encendidos.
 
 Seguir el orden de evaluación del enunciado: subir el código revisado, ejecutar
 la web en Codespaces con puerto público y usar primero PageSpeed Insights sobre

@@ -53,8 +53,8 @@ completo del formulario en navegador móvil y escritorio.
 | Resolver contenido contradictorio | El módulo pide inventario en tiempo real, seguimiento unificado, carriers certificados e integración con ventas. El briefing local no los acredita como servicios actuales. Aclarar con estudiante/docente antes de anunciarlos. |
 | Resolver beneficios literales | Exclusividad binacional y visibilidad total no acreditadas por briefing local; se usan afirmaciones prudentes. Cifra aproximada ~130 en vez de +130. |
 | Accesibilidad fuera del alcance verificado | Revisión local de teclado, foco, ARIA, errores, movimiento reducido y colores forzados completada. Lector de pantalla real, contraste exhaustivo de imágenes y móvil físico pendientes. Carrusel sin pausa conserva la limitación WCAG 2.2.2 por decisión expresa. |
-| Evidencia de evaluación | CLI local: 95 móvil / 100 escritorio. Falta ejecutar primero PageSpeed Insights sobre la URL pública de Codespaces y guardar las capturas. Solo si PageSpeed no alcanza Codespaces, usar Lighthouse de Chrome DevTools o su extensión. |
-| Publicación y entrega | PR #1 integrada en main (f0d6d9c). Rama local codex/hito-2-web-publica creada desde main actualizado, conservando todos los cambios. Lint, 14 pruebas y build correctos. Commit 755cf92 subido a origin/codex/hito-2-web-publica con 39 rutas revisadas. Pendientes sincronización con Codespaces, URL pública y PR con captura. |
+| Evidencia de evaluación | CLI local: 95 móvil / 100 escritorio. PageSpeed público ejecutado en ambos perfiles; auditó el aviso de acceso de GitHub, no TrackFlow. Resultados descartados. Faltan capturas válidas de Lighthouse DevTools, alternativa prevista por el hito. |
+| Publicación y entrega | PR #1 integrada en main (f0d6d9c). Rama local codex/hito-2-web-publica creada desde main actualizado, conservando todos los cambios. Lint, 14 pruebas y build correctos. Commit 755cf92 subido a origin/codex/hito-2-web-publica con 39 rutas revisadas. Codespaces actualizado a 1ea867d, preview pública en puerto 3000. Pendientes capturas válidas y PR con URL/evidencia. |
 
 Tailwind: convencionales migrados; permanecen excepciones técnicas documentadas
 para movimiento/gráficos/foco. Verificar su justificación si el docente exige
@@ -340,7 +340,7 @@ CONTEXT.md protegido no se sustituye ni modifica como parte de esta revisión.
 - Incorporar solo recursos usados y evidencias seleccionadas: no subir capturas
   exploratorias, PNG originales, dist, node_modules, caches ni archivos ajenos.
 
-Nada se subió, publicó, comiteó ni sincronizó con Codespaces durante la revisión.
+La revisión inicial fue local. La subida y sincronización autorizadas posteriores se registran al final de este documento.
 
 ## Orden recomendado para cerrar el hito
 
@@ -377,3 +377,36 @@ No se han subido informes ni capturas exploratorias. Codespaces API devolvió
 403; su apertura en navegador quedó bloqueada por pestaña sin URL válida.
 Se requiere que el estudiante abra el editor para continuar. Sincronización
 remota, puerto público, PageSpeed y capturas todavía pendientes.
+
+## Codespaces público y auditoría — revisión posterior del 16/10/2026
+
+Codespace super engine actualizado a codex/hito-2-web-publica (1ea867d) tras
+comprobar que estaba limpio y actualizar main. Instalación frozen-lockfile,
+lint, 14 pruebas y build correctos allí. Hash de CONTEXT.md antes/después:
+5fb916baf4dd5ce1ecb6849c3eb154b42ad4acd8, idéntico al local.
+
+[Preview pública](https://super-engine-6vvqp55594jx2r9gj-3000.app.github.dev/).
+Se sirve el build con Vite preview en puerto 3000, host 0.0.0.0 y allowed host
+limitado a su hostname. Se conserva noindex para preview. Solo 3000 público;
+5678 y 8000 privados. No se modifica .devcontainer ni se añaden herramientas
+al repositorio: CLI oficial GitHub temporal en /tmp ante fallo de la extensión
+de túneles (PendingMigrationError). La preview depende de que Codespaces y
+su servidor sigan encendidos.
+
+Comprobada landing pública en 1440 y 390px, sin overflow móvil observado,
+CTA al formulario y tres pasos completos en móvil con datos ficticios,
+errores vacíos y éxito simulado. Sin errores/avisos de consola de la web.
+No equivale a repetir todas las pruebas manuales ni certificar WCAG completa.
+
+[PageSpeed ejecutado en ambos perfiles](https://pagespeed.web.dev/analysis/https-super-engine-6vvqp55594jx2r9gj-3000-app-github-dev/caqn8ssisj?form_factor=mobile).
+La captura final muestra el aviso de acceso de GitHub, no TrackFlow; sus
+100/99 no acreditan rendimiento del website. Capturas de esa incidencia
+fuera del repositorio, no incluidas como evidencia válida de entrega.
+
+Siguiente paso: Lighthouse de Chrome DevTools en móvil/escritorio sobre la
+preview local o Codespaces, conforme al fallback oficial. Control de Windows
+se detuvo al no poder verificar URL en los intentos anteriores; el control
+de navegador solo expone la página. Se solicita abrir manualmente Lighthouse
+para continuar, sin inventar mediciones ni sustituirlas por CLI. Después:
+guardar solo capturas válidas seleccionadas, PR hacia main con URL/captura,
+entregar URL del repositorio y hacer merge tras aprobación.
