@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import RollingLabel from './RollingLabel'
 import ActionLink from './ActionLink'
 
-const ctaLabel = 'Explorar servicios'
+const ctaLabel = 'Solicitar información'
 
 function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -45,13 +45,14 @@ function SiteHeader() {
           ref={navRef}
         >
           <ul>
+            <li><a href="#inicio" aria-label="Inicio" onClick={() => setIsMenuOpen(false)}><RollingLabel text="Inicio" /></a></li>
             <li><a href="#servicios" aria-label="Servicios" onClick={() => setIsMenuOpen(false)}><RollingLabel text="Servicios" /></a></li>
-            <li><a href="#operacion" aria-label="Operación" onClick={() => setIsMenuOpen(false)}><RollingLabel text="Operación" /></a></li>
-            <li><a href="#evolucion" aria-label="Evolución" onClick={() => setIsMenuOpen(false)}><RollingLabel text="Evolución" /></a></li>
+            <li><a href="#operacion" aria-label="Cobertura" onClick={() => setIsMenuOpen(false)}><RollingLabel text="Cobertura" /></a></li>
+            <li><a href="#contacto" aria-label="Contacto" onClick={() => setIsMenuOpen(false)}><RollingLabel text="Contacto" /></a></li>
           </ul>
         </nav>
 
-        <ActionLink className="header-cta" href="#servicios" label={ctaLabel} onClick={() => setIsMenuOpen(false)} />
+        <ActionLink className="header-cta" href="/application.html" label={ctaLabel} onClick={() => setIsMenuOpen(false)} />
 
         <button
           className="menu-toggle"

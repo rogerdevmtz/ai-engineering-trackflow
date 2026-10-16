@@ -28,6 +28,13 @@ No crear copias de respaldo.
 
 Realizar únicamente el trabajo correspondiente a la tarea actual.
 
+Trabajar y revisar en local. No hacer commit, push ni sincronizar cambios
+con Codespaces hasta que el estudiante apruebe los cambios y autorice su subida.
+
+Aplicar siempre `.agents/rules/repository-hygiene.md`: incorporar únicamente
+archivos necesarios y con uso comprobado. Esta misma regla debe mantenerse
+al sincronizar el repositorio entre local y Codespaces, tras la aprobación.
+
 ## Estructura del proyecto
 
 - Web corporativa en uis/website.
@@ -75,7 +82,8 @@ Seguir estos pasos en orden:
 5. Revisar el diff final, incluidos los archivos nuevos,
    y ejecutar git diff --check. Comprobar que no se incluyen
    secretos, dependencias instaladas ni archivos generados
-   innecesarios.
+   innecesarios. Justificar el uso de cada archivo añadido según
+   `.agents/rules/repository-hygiene.md` y excluir los que no se utilicen.
 
 6. Preparar únicamente los archivos de la tarea, revisar
    git diff --cached y realizar el commit con un mensaje

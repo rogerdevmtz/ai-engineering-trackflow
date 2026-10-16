@@ -20,13 +20,22 @@ export function createSearchFiles({ siteUrl, indexable }, { siteTitle, siteDescr
   const absolute = path => siteUrl ? new URL(path, siteUrl).href : undefined
   const organizationId = absolute('#organizacion') ?? '#organizacion'
   const countries = [{ '@type': 'Country', name: 'Estados Unidos' }, { '@type': 'Country', name: 'España' }]
+  const addresses = [
+    { '@type': 'PostalAddress', addressCountry: 'US', addressLocality: 'Los Ángeles', addressRegion: 'California' },
+    { '@type': 'PostalAddress', addressCountry: 'ES', addressLocality: 'Zaragoza', addressRegion: 'Aragón' },
+  ]
   const graph = [
-    { '@type': 'Organization', '@id': organizationId, name: 'TrackFlow', description: siteDescription,
-      ...(siteUrl && { url: siteUrl, logo: absolute('/brand/trackflow-logo-dark.svg') }),
+    { '@type': 'Organization', '@id': organizationId, name: 'TrackFlow',
+      description: 'Gestión de almacenes y entregas de última milla para e-commerce',
+      // The company URL belongs to the milestone scenario; SITE_URL identifies this deployment.
+      url: 'https://trackflow.com', foundingDate: '2009', address: addresses,
+      contactPoint: { '@type': 'ContactPoint', telephone: '+1-213-555-0147', email: 'comercial@trackflow.com', contactType: 'sales', availableLanguage: ['Spanish', 'English'] },
+      sameAs: ['https://linkedin.com/company/trackflow'],
+      ...(siteUrl && { logo: absolute('/brand/trackflow-logo-dark.svg') }),
       areaServed: countries,
       location: [
-        { '@type': 'Place', name: 'Almacén de Los Ángeles', address: { '@type': 'PostalAddress', addressLocality: 'Los Ángeles', addressCountry: 'US' } },
-        { '@type': 'Place', name: 'Almacén de Zaragoza', address: { '@type': 'PostalAddress', addressLocality: 'Zaragoza', addressCountry: 'ES' } },
+        { '@type': 'Place', name: 'Almacén de Los Ángeles', address: addresses[0] },
+        { '@type': 'Place', name: 'Almacén de Zaragoza', address: addresses[1] },
       ],
     },
     ...services.map(service => ({ '@type': 'Service', '@id': absolute(`#${service.id}`) ?? `#${service.id}`, name: service.title, description: service.description, provider: { '@id': organizationId }, areaServed: countries })),
