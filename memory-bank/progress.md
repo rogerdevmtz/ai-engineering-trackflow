@@ -1167,3 +1167,33 @@ Se intentó F12 con el navegador; el panel no está expuesto al control de pági
 Se pidió al estudiante abrir Lighthouse manualmente. Siguen pendientes las
 capturas válidas, PR con URL/evidencia, entrega y merge posterior a aprobación.
 Limitaciones de contenido/accesibilidad documentadas siguen vigentes.
+
+## 16/10/2026 — Auditoría local y capturas CLI por petición del estudiante
+
+Tras dos intentos manuales DevTools fallidos con NO_FCP, el estudiante pidió
+pruebas y capturas en local. Lighthouse CLI 13.5.0 sobre preview 4173, Chrome
+headless 155, cuatro categorías y perfiles estándar con caché reiniciada:
+landing 95 móvil / 100 escritorio, accesibilidad automática y buenas prácticas
+100/100, SEO 66/66 por noindex de preview. LCP 2,8/0,6 s, CLS 0/0; sin runtimeError.
+Verificadas miniaturas de TrackFlow y métricas válidas, sin aviso de GitHub.
+
+Dos capturas seleccionadas en docs/evidence/lighthouse-cli-landing-mobile.png
+y lighthouse-cli-landing-desktop.png, enlazadas en docs/milestone-2.md con origen
+CLI explícito. Informes HTML/JSON originales fuera del repo, carpeta temporal
+trackflow-lighthouse-20261016, prefijo local-review-landing-mobile/desktop.
+No se presentan como capturas DevTools ni se cierra su requisito literal.
+
+Sin cambios de código, diseño, recursos, animaciones o CONTEXT.md. No se
+repitieron formulario/lint/build; comprobaciones anteriores conservan su fecha.
+Sin commit/push en esta tarea. Pendientes: confirmar aceptación docente de CLI
+o conseguir DevTools válido, PR con URL/evidencias y diferencias documentadas,
+entregar URL del repositorio y merge posterior a aprobación.
+
+## 16/10/2026 — Preparación de PR del segundo hito autorizada
+
+El estudiante autorizó subir solo evidencias/documentación necesarias y abrir
+PR hacia main con URL pública y origen Lighthouse CLI explícito. Dos PNG
+seleccionados con uso en diagnóstico y descripción de PR; informes HTML/JSON
+y temporales permanecen fuera. Repetidos lint, 14 pruebas y build correctamente
+en local antes de abrir la PR. Diff --check correcto y archivos protegidos
+sin cambios respecto a main. Pendiente confirmar creación y URL de la PR.

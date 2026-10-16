@@ -410,3 +410,30 @@ de navegador solo expone la página. Se solicita abrir manualmente Lighthouse
 para continuar, sin inventar mediciones ni sustituirlas por CLI. Después:
 guardar solo capturas válidas seleccionadas, PR hacia main con URL/captura,
 entregar URL del repositorio y hacer merge tras aprobación.
+
+## Lighthouse local repetido y capturas CLI — 16/10/2026
+
+Por petición del estudiante tras fallos NO_FCP de DevTools, se repitió Lighthouse
+CLI 13.5.0 sobre http://127.0.0.1:4173/, con Chrome headless 155, perfiles estándar
+móvil/desktop, reinicio de caché y las cuatro categorías. Sin alterar diseño,
+animaciones, recursos ni throttling para favorecer la medición. Sin runtimeError.
+
+| Perfil | Rendimiento | Accesibilidad automática | Buenas prácticas | SEO | LCP | CLS |
+| --- | --- | --- | --- | --- | --- | --- |
+| Móvil | 95 | 100 | 100 | 66 | 2,8 s | 0 |
+| Escritorio | 100 | 100 | 100 | 66 | 0,6 s | 0 |
+
+SEO limitado por noindex deliberado de preview; no se ha retirado para subir
+la puntuación. No se certifica accesibilidad completa por la nota automática.
+
+Capturas seleccionadas, verificadas visualmente con URL, notas y miniatura
+de TrackFlow: [móvil CLI](evidence/lighthouse-cli-landing-mobile.png) y
+[escritorio CLI](evidence/lighthouse-cli-landing-desktop.png). Son capturas del
+renderizador HTML oficial de informes CLI, no de DevTools ni de PageSpeed.
+No se marca cerrado el formato literal de evidencia de entrega: confirmar
+aceptación docente de CLI o completar captura DevTools válida.
+
+Informes originales HTML/JSON fuera del repositorio, en la carpeta temporal
+trackflow-lighthouse-20261016, prefijo local-review-landing-mobile/desktop.
+Esta tarea no repitió el formulario ni lint/build; el código no cambió y se
+conservan las comprobaciones fechadas anteriores. Sin commit/push en esta tarea.
