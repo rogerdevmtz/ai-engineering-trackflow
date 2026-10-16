@@ -1213,3 +1213,44 @@ incluyeron builds, dependencias instaladas, informes HTML/JSON, temporales
 ni capturas exploratorias. Preview pública respondió HTTP 200 en esta revisión.
 Próximo paso: revisión/aceptación docente de CLI y diferencias, entregar URL
 del repositorio y merge solo tras aprobación; no se hizo entrega en campus.
+
+## 16/10/2026 — Comprobación pública antes de entregar
+
+Codespace super engine estaba detenido: la URL pública devolvía 404. Se inició
+el Codespace y el preview del build existente en el puerto 3000; restaurada
+la visibilidad pública únicamente de ese puerto. Landing y application.html
+cargan TrackFlow en navegador. Servidor de preview permanece iniciado.
+
+Remote conserva rama codex/hito-2-web-publica en 1ea867d, sin cambios de trabajo;
+los commits posteriores de la PR son documentación y evidencias. CONTEXT.md
+conserva hash 5fb916baf4dd5ce1ecb6849c3eb154b42ad4acd8 en local y Codespaces.
+PR #2 comprobada abierta, no fusionada, head 060852d.
+
+QA pública en escritorio (1515 px) y móvil emulado (390 x 844): tres pasos
+completados hasta confirmación simulada, vacíos y email incorrecto bloqueados,
+volumen bajo requiere confirmación y privacidad obligatoria. Limpieza, nueva
+solicitud y regreso al inicio comprobados. Menú móvil, enlace de cobertura y
+cambio de pestaña de beneficios mediante teclado funcionan. Sin desbordamiento
+horizontal observado ni errores/avisos de consola durante los flujos.
+Capturas de QA guardadas fuera del repo en la carpeta de visualizaciones.
+
+No se modificó código ni se repitieron Lighthouse, lint, pruebas o build en
+esta comprobación. Sin commit/push/merge ni cambios de CONTEXT.md. Pendientes
+previos de aceptación docente de CLI/diferencias y entrega en campus siguen
+vigentes. Mantener Codespaces y preview activos para la revisión del profesor.
+
+
+## 16/10/2026 — Sustitución de evidencias por Chrome DevTools
+
+El estudiante aportó capturas originales de Lighthouse desde Chrome DevTools
+sobre Codespaces público: landing 99 móvil / 100 escritorio, accesibilidad
+automática y buenas prácticas 100 en ambos, SEO 66. Miniaturas de TrackFlow,
+URL pública y métricas sin errores verificadas visualmente. Móvil FCP 1,0 s,
+LCP 2,1 s; escritorio FCP 0,4 s, LCP 0,5 s; TBT y CLS 0 en ambos.
+
+Autorizada la sustitución en PR #2: dos PNG DevTools seleccionados, retirada
+de dos PNG CLI, diagnóstico y contexto técnico actualizados. Se cierra el
+pendiente de formato de evidencia; se mantienen las diferencias de contenido,
+diseño y accesibilidad para revisión docente. Sin cambios de código ni de
+CONTEXT.md; no procede repetir lint/build ni atribuir nuevas pruebas a esta tarea.
+Verificación de documentación, rutas y diff antes de subir; sin merge.

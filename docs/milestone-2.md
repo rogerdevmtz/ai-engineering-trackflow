@@ -53,8 +53,8 @@ completo del formulario en navegador móvil y escritorio.
 | Resolver contenido contradictorio | El módulo pide inventario en tiempo real, seguimiento unificado, carriers certificados e integración con ventas. El briefing local no los acredita como servicios actuales. Aclarar con estudiante/docente antes de anunciarlos. |
 | Resolver beneficios literales | Exclusividad binacional y visibilidad total no acreditadas por briefing local; se usan afirmaciones prudentes. Cifra aproximada ~130 en vez de +130. |
 | Accesibilidad fuera del alcance verificado | Revisión local de teclado, foco, ARIA, errores, movimiento reducido y colores forzados completada. Lector de pantalla real, contraste exhaustivo de imágenes y móvil físico pendientes. Carrusel sin pausa conserva la limitación WCAG 2.2.2 por decisión expresa. |
-| Evidencia de evaluación | CLI local: 95 móvil / 100 escritorio. PageSpeed público ejecutado en ambos perfiles; auditó el aviso de acceso de GitHub, no TrackFlow. Resultados descartados. Faltan capturas válidas de Lighthouse DevTools, alternativa prevista por el hito. |
-| Publicación y entrega | PR #1 integrada en main (f0d6d9c). Rama local codex/hito-2-web-publica creada desde main actualizado, conservando todos los cambios. Lint, 14 pruebas y build correctos. Commit 755cf92 subido a origin/codex/hito-2-web-publica con 39 rutas revisadas. Codespaces actualizado a 1ea867d, preview pública en puerto 3000. PR #2 abierta con URL pública y capturas CLI identificadas; pendiente aceptación docente del formato de evidencia y demás diferencias documentadas. |
+| Evidencia de evaluación | CLI local: 95 móvil / 100 escritorio. PageSpeed público ejecutado en ambos perfiles; auditó el aviso de acceso de GitHub, no TrackFlow. Resultados descartados. Capturas posteriores de Chrome DevTools sobre TrackFlow público: 99 móvil / 100 escritorio; formato de evidencia completado. |
+| Publicación y entrega | PR #1 integrada en main (f0d6d9c). Rama local codex/hito-2-web-publica creada desde main actualizado, conservando todos los cambios. Lint, 14 pruebas y build correctos. Commit 755cf92 subido a origin/codex/hito-2-web-publica con 39 rutas revisadas. Codespaces actualizado a 1ea867d, preview pública en puerto 3000. PR #2 abierta con URL pública y capturas DevTools 99 móvil / 100 escritorio; siguen pendientes de revisión docente las diferencias documentadas. |
 
 Tailwind: convencionales migrados; permanecen excepciones técnicas documentadas
 para movimiento/gráficos/foco. Verificar su justificación si el docente exige
@@ -233,7 +233,7 @@ Estados: **Sí** = código/comprobación suficiente para ese punto funcional;
 | E10 | Breakpoints Tailwind | Presentes en HTML y @apply de estructura; media queries específicas conservadas |
 | E11 | Sin CSS innecesario | Sin bloques convencionales pendientes; CSS técnico restante revisado y documentado en README |
 | E12 | Coherencia profesional | Base existente y revisada; valoración visual final del docente |
-| E13 | Rendimiento mínimo 80 | Superado también el objetivo 95 del estudiante: landing 95 móvil / 100 escritorio (móvil repetido tres veces), formulario 100 / 100. Evidencia pública/formato DevTools pendientes |
+| E13 | Rendimiento mínimo 80 | Superado también el objetivo 95 del estudiante: landing 95 móvil / 100 escritorio (móvil repetido tres veces), formulario 100 / 100. Evidencia pública DevTools posterior: 99 móvil / 100 escritorio, enlazada al final |
 | E14 | Teclado en todos los controles | Salto, menú/Escape, servicios, pestañas de beneficios y recorrido de formulario comprobados; sin certificación exhaustiva |
 | E15 | ARIA accesible | Parcial: asociaciones sin referencias rotas; lector de pantalla pendiente |
 | E16 | Contraste mínimo | Borde de campos corregido a 3,12:1 y placeholder 5,37:1; auditoría completa de imágenes pendiente |
@@ -326,23 +326,19 @@ CONTEXT.md protegido no se sustituye ni modifica como parte de esta revisión.
   99 escritorio, LCP 4,1 / 0,8 s y CLS 0. Informes benefits-tabs-final-mobile/
   desktop fuera del repositorio; no sustituyen la evidencia pública de entrega.
 
-## Entrega que sigue pendiente
+## Estado actual de entrega
 
-- Con aprobación del estudiante, publicar el código de este hito mediante PR.
-- Preparar URL pública de Codespaces y ejecutar primero PageSpeed Insights.
-  Si no puede acceder, utilizar Lighthouse de Chrome DevTools o su extensión.
-  Guardar captura con mínimo 80 según el hito; objetivo del estudiante: 95.
-  No existe todavía esa evidencia pública.
-- Incluir URL/captura en la descripción y entregar la URL del repositorio.
-- Tras aprobación del PR, realizar el merge requerido por el procedimiento docente.
-- Mantener index.html, application.html y validation.js reales dentro de
-  uis/website, de acuerdo con el monorepositorio. CONTEXT.md permanece intacto.
-- Incorporar solo recursos usados y evidencias seleccionadas: no subir capturas
-  exploratorias, PNG originales, dist, node_modules, caches ni archivos ajenos.
+- Código publicado en la rama de PR #2; URL pública de Codespaces incluida.
+- PageSpeed no alcanzó TrackFlow; sustitución completada con las dos capturas
+  Chrome DevTools, 99 móvil / 100 escritorio, conforme al fallback del hito.
+- Pendiente entregar la URL del repositorio en campus y revisión docente de
+  las diferencias de contenido, diseño y accesibilidad documentadas.
+- Merge únicamente tras aprobación; no realizado.
+- Archivos principales reales en uis/website; CONTEXT.md intacto.
+- Solo evidencias seleccionadas, recursos usados y documentación necesaria;
+  sin informes completos, builds, dependencias instaladas ni temporales.
 
-La revisión inicial fue local. La subida y sincronización autorizadas posteriores se registran al final de este documento.
-
-## Orden recomendado para cerrar el hito
+## Orden recomendado para cerrar el hito — historial anterior a la publicación
 
 1. Aclarar las discrepancias de servicios y beneficios entre contextos.
 2. Schema completado en local; conservar su contrato durante los ajustes restantes.
@@ -427,11 +423,10 @@ SEO limitado por noindex deliberado de preview; no se ha retirado para subir
 la puntuación. No se certifica accesibilidad completa por la nota automática.
 
 Capturas seleccionadas, verificadas visualmente con URL, notas y miniatura
-de TrackFlow: [móvil CLI](evidence/lighthouse-cli-landing-mobile.png) y
-[escritorio CLI](evidence/lighthouse-cli-landing-desktop.png). Son capturas del
+de TrackFlow: móvil CLI y escritorio CLI (sustituidas posteriormente por las capturas DevTools). Son capturas del
 renderizador HTML oficial de informes CLI, no de DevTools ni de PageSpeed.
-No se marca cerrado el formato literal de evidencia de entrega: confirmar
-aceptación docente de CLI o completar captura DevTools válida.
+En esa revisión quedaba pendiente el formato literal de evidencia; completado
+posteriormente con las capturas DevTools que figuran al final.
 
 Informes originales HTML/JSON fuera del repositorio, en la carpeta temporal
 trackflow-lighthouse-20261016, prefijo local-review-landing-mobile/desktop.
@@ -447,6 +442,29 @@ limitaciones de PageSpeed/DevTools y diferencias de contenido/diseño/accesibili
 Comprobada la carga de ambas imágenes en la descripción. Lint, 14 pruebas
 y build repetidos correctamente antes de crearla. No se realizó merge.
 
-Pendientes de entrega: revisión docente, aceptación de CLI o evidencia DevTools
-alternativa válida, entrega de la URL del repositorio y merge tras aprobación.
+Pendientes de entrega: revisión docente de las diferencias documentadas, entrega
+de la URL del repositorio y merge tras aprobación. Evidencia DevTools completada.
 CONTEXT.md, company-choice.md y .devcontainer sin cambios frente a main.
+
+
+## Evidencia de entrega actual — Chrome DevTools, 16/10/2026
+
+El estudiante ejecutó Lighthouse desde Chrome DevTools sobre la URL pública
+de Codespaces y aportó las dos capturas originales, revisadas visualmente:
+URL de TrackFlow, miniatura correcta, métricas sin NO_FCP y puntuaciones válidas.
+Estas capturas sustituyen las de CLI como evidencia de entrega. PageSpeed y
+la extensión basada en PSI siguieron capturando el aviso de GitHub; sus notas
+se descartaron. Los fallos anteriores de DevTools quedaron superados.
+
+| Landing pública | Rendimiento | Accesibilidad automática | Buenas prácticas | SEO | FCP | LCP | TBT | CLS |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Móvil | 99 | 100 | 100 | 66 | 1,0 s | 2,1 s | 0 ms | 0 |
+| Escritorio | 100 | 100 | 100 | 66 | 0,4 s | 0,5 s | 0 ms | 0 |
+
+- [Captura DevTools móvil](evidence/lighthouse-devtools-landing-mobile.png)
+- [Captura DevTools escritorio](evidence/lighthouse-devtools-landing-desktop.png)
+
+SEO 66 conserva el noindex deliberado de preview; accesibilidad automática 100
+no elimina las limitaciones manuales documentadas. No se modificó el código
+para estas mediciones. Solo se conservan las dos capturas seleccionadas para
+la entrega; los informes CLI y capturas exploratorias quedan fuera del repo.
