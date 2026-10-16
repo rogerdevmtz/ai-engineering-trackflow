@@ -12,8 +12,33 @@ function ServiceJourney({ children }: { children: ReactNode }) {
   const metrics = useRef({ pinned: false, top: 0, stride: 0, travel: 0 })
   const snapToScroll = useRef(false)
   const [active, setActive] = useState({ index: 0, previous: 0, instant: false })
+  const [photosNearby, setPhotosNearby] = useState(false)
+  const [loadedPhotos, setLoadedPhotos] = useState(() => services.map(() => false))
+
+  useEffect(() => {
+    // A cached first photo can finish before React attaches its load listener.
+    const images = visual.current?.querySelectorAll('img')
+    if (!images) return
+    setLoadedPhotos(previous => {
+      const next = previous.map((loaded, index) => loaded || (
+        images[index].complete && images[index].naturalWidth > 0 && !images[index].currentSrc.startsWith('data:')
+      ))
+      return next.some((loaded, index) => loaded !== previous[index]) ? next : previous
+    })
+  }, [photosNearby])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      setPhotosNearby(true)
+      observer.disconnect()
+    }, { rootMargin: '400px' })
+    if (visual.current) observer.observe(visual.current)
+    return () => observer.disconnect()
+  }, [])
 
   function select(index: number, keyboard: boolean) {
+    setPhotosNearby(true)
     const layout = metrics.current
     if (layout.pinned && container.current) {
       if (keyboard) {
@@ -157,33 +182,41 @@ function ServiceJourney({ children }: { children: ReactNode }) {
   }, [])
 
   return (
-    <div className="service-story" ref={container} data-instant={active.instant}>
-      <div className="service-stage" ref={stage}>
+    <div className="service-story group/journey" ref={container} data-instant={active.instant}>
+      <div className="group-data-[pinned=true]/journey:sticky group-data-[pinned=true]/journey:top-20 group-data-[pinned=true]/journey:flex group-data-[pinned=true]/journey:h-[calc(100svh-100px)] group-data-[pinned=true]/journey:flex-col min-[761px]:group-data-[pinned=true]/journey:top-24 min-[761px]:group-data-[pinned=true]/journey:h-[calc(100svh-120px)] max-[760px]:group-data-[pinned=true]/journey:[&_.section-intro]:gap-3 max-[760px]:group-data-[pinned=true]/journey:[&_.eyebrow]:mb-3 max-[760px]:group-data-[pinned=true]/journey:[&_.section-intro>p]:max-w-[400px] max-[760px]:group-data-[pinned=true]/journey:[&_.section-intro>p]:text-xs max-[760px]:group-data-[pinned=true]/journey:[&_.section-intro>p]:leading-[1.6]" ref={stage}>
       {children}
-      <div className="service-journey">
-      <div className="journey-images" ref={visual}>
-        <figure className="journey-visual" id="service-visual">
-          <div className="journey-photo-stack">
+      <div className="mt-10 grid grid-cols-[minmax(0,1fr)] items-start gap-6 min-[761px]:mt-[70px] min-[761px]:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] min-[761px]:gap-[clamp(48px,7vw,110px)] group-data-[pinned=true]/journey:mt-5 group-data-[pinned=true]/journey:min-h-0 group-data-[pinned=true]/journey:flex-1 group-data-[pinned=true]/journey:items-stretch max-[760px]:group-data-[pinned=true]/journey:grid-rows-[minmax(120px,1fr)_minmax(154px,.85fr)] max-[760px]:group-data-[pinned=true]/journey:gap-[14px] min-[761px]:group-data-[pinned=true]/journey:mt-10">
+      <div className="sticky top-20 z-[2] bg-black py-2 min-[761px]:top-[110px] min-[761px]:z-auto min-[761px]:py-0 group-data-[pinned=true]/journey:relative group-data-[pinned=true]/journey:top-auto group-data-[pinned=true]/journey:min-h-0 group-data-[pinned=true]/journey:p-0" ref={visual}>
+        <figure className="relative group-data-[pinned=true]/journey:h-full" id="service-visual">
+          <div className="relative h-[clamp(180px,28svh,260px)] overflow-hidden rounded-[4px] bg-[var(--color-surface)] min-[761px]:h-[clamp(350px,58svh,600px)] group-data-[pinned=true]/journey:h-full">
             {services.map((service, index) => (
-              <img key={service.id} src={`/service-${service.image}-v1.webp`}
+              <img key={service.id} src={photosNearby
+                ? `/service-${service.image}-v1.webp`
+                : 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg"/%3E'}
+                data-src={`/service-${service.image}-v1.webp`}
+                onLoad={event => {
+                  if (event.currentTarget.currentSrc.startsWith('data:')) return
+                  setLoadedPhotos(previous => previous[index] ? previous : previous.map((loaded, i) => i === index || loaded))
+                }}
                 alt={index === active.index ? `Imagen ilustrativa generada con IA: ${service.alt}` : ''}
-                aria-hidden={index !== active.index} data-active={index === active.index}
-                data-previous={index === active.previous}
-                loading="lazy" decoding="async" width="960" height="1200" />
+                aria-hidden={index !== active.index} data-active={index === active.index && loadedPhotos[index]}
+                data-previous={index === (loadedPhotos[active.previous] ? active.previous : loadedPhotos.findIndex(Boolean))}
+                loading={photosNearby ? 'eager' : 'lazy'} fetchPriority={index === active.index ? 'high' : 'low'} decoding="async" width="960" height="1200" className="absolute inset-0 block size-full object-cover opacity-0 max-[760px]:object-[center_48%] data-[previous=true]:z-[1] data-[previous=true]:opacity-100 data-[active=true]:z-[2] data-[active=true]:opacity-100 data-[active=true]:transition-opacity data-[active=true]:duration-[520ms] data-[active=true]:ease-[var(--ease-in-out)] motion-reduce:transition-none group-data-[instant=true]/journey:transition-none" />
             ))}
+            <noscript><img src={`/service-${services[0].image}-v1.webp`} alt="" loading="lazy" width="960" height="1200" className="absolute inset-0 block size-full object-cover max-[760px]:object-[center_48%]" /></noscript>
           </div>
         </figure>
       </div>
-      <div className="journey-step-window" ref={windowRef}>
-      <ol className="journey-steps" ref={track}>
+      <div className="group-data-[pinned=true]/journey:min-h-0 group-data-[pinned=true]/journey:overflow-clip group-data-[pinned=true]/journey:px-2 group-data-[pinned=true]/journey:-mx-2" ref={windowRef}>
+      <ol className="m-0 list-none border-b border-[var(--color-border)] p-0 min-[761px]:pb-[100px] group-data-[pinned=true]/journey:border-0 group-data-[pinned=true]/journey:p-0" ref={track}>
         {services.map((service, index) => (
-          <li id={service.id} tabIndex={-1} key={service.id} ref={element => { rows.current[index] = element }} data-active={active.index === index}>
-            <span className="step-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <li id={service.id} tabIndex={-1} key={service.id} ref={element => { rows.current[index] = element }} data-active={active.index === index} className="group/step relative grid min-h-[280px] grid-cols-[38px_minmax(0,1fr)] content-center gap-4 border-t border-[var(--color-border)] py-9 scroll-mt-[calc(50svh+clamp(90px,14svh,130px)-192px)] before:absolute before:-top-px before:left-0 before:h-px before:w-full before:origin-left before:scale-x-0 before:bg-[var(--color-accent)] before:transition-transform before:duration-[240ms] before:ease-[var(--ease-out)] before:content-[''] data-[active=true]:before:scale-x-100 min-[761px]:min-h-[300px] min-[761px]:grid-cols-[50px_minmax(0,1fr)] min-[761px]:gap-5 min-[761px]:py-12 min-[761px]:scroll-mt-[max(0px,calc(55svh-250px))] group-data-[pinned=true]/journey:h-[var(--journey-step-height)] group-data-[pinned=true]/journey:min-h-[var(--journey-step-height)] group-data-[pinned=true]/journey:py-[18px] min-[761px]:group-data-[pinned=true]/journey:py-6 motion-reduce:before:transition-none group-data-[instant=true]/journey:before:transition-none">
+            <span className="text-[var(--color-accent)] font-[family-name:var(--font-display)] text-xl leading-[1.6]" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
             <div>
-              <h3><button type="button" aria-pressed={active.index === index} aria-controls="service-visual"
+              <h3 className="font-[family-name:var(--font-display)] text-[28px] leading-[1.25] font-medium [overflow-wrap:anywhere] min-[761px]:text-[clamp(24px,2vw,32px)] max-[760px]:group-data-[pinned=true]/journey:text-[clamp(24px,6vw,28px)]"><button className="block min-h-11 cursor-pointer border-0 bg-transparent p-0 text-left text-[#a8a8a8] [font:inherit] transition-colors duration-[240ms] group-data-[active=true]/step:text-white hover:text-white focus-visible:outline-2 focus-visible:outline-[#ff9a73] focus-visible:outline-offset-4" type="button" aria-pressed={active.index === index} aria-controls="service-visual"
                 onFocus={event => { if (event.currentTarget.matches(':focus-visible') && active.index !== index) select(index, true) }}
                 onClick={event => select(index, event.detail === 0)}>{service.title}</button></h3>
-              <p>{service.description}</p>
+              <p className="mt-[10px] max-w-[385px] text-sm leading-[1.8] text-[var(--color-muted)] max-[760px]:group-data-[pinned=true]/journey:text-[13px] max-[760px]:group-data-[pinned=true]/journey:leading-[1.7]">{service.description}</p>
             </div>
           </li>
         ))}

@@ -6,7 +6,7 @@ import ScrollWords from './components/ScrollWords'
 import CarrierStrip from './components/CarrierStrip'
 import ActionLink from './components/ActionLink'
 import ServiceJourney from './components/ServiceJourney'
-import FutureExplorer from './components/FutureExplorer'
+import BenefitsShowcase from './components/BenefitsShowcase'
 import './App.css'
 
 function App() {
@@ -30,20 +30,21 @@ function App() {
           </picture>
           <div className="hero-copy content-width">
             <h1 id="inicio-titulo">
-              <span className="hero-title-line"><span>Tu logística.</span></span>{' '}
-              <span className="hero-title-line"><span>De principio</span></span>{' '}
-              <span className="hero-title-line hero-title-accent"><span>a fin.</span></span>
+              <span className="hero-title-line"><span>Logística que</span></span>{' '}
+              <span className="hero-title-line"><span>escala con tu</span></span>{' '}
+              <span className="hero-title-line hero-title-accent"><span>e-commerce</span></span>
             </h1>
           </div>
           <div className="hero-editorial content-width">
             <div className="hero-summary">
               <p className="hero-description">
-                <span className="text-bright">Almacenamos inventario,</span> preparamos pedidos, coordinamos envíos
-                y gestionamos devoluciones para marcas de comercio electrónico.
+                <span className="text-bright">Gestión de almacenes, entregas de última milla y logística inversa</span>{' '}
+                en Estados Unidos y España. Más de 15 años ayudando a marcas de moda, electrónica y cosmética
+                a crecer sin preocuparse por la operación.
               </p>
               <div className="hero-actions">
-                <ActionLink className="button button-primary" href="#servicios" label="Explorar servicios" />
-                <ActionLink className="button button-secondary" href="#operacion" label="Conoce nuestra operación" />
+                <ActionLink className="button button-primary" href="/application.html" label="Solicitar información" />
+                <ActionLink className="button button-secondary" href="#operacion" label="Ver cobertura" />
               </div>
             </div>
           </div>
@@ -54,7 +55,7 @@ function App() {
 
         <CarrierStrip />
 
-        <section className="services-section section-pad" id="servicios" aria-labelledby="servicios-titulo" tabIndex={-1}>
+        <section className="bg-black pt-[clamp(72px,7vw,110px)] pb-[var(--space-section)]" id="servicios" aria-labelledby="servicios-titulo" tabIndex={-1}>
           <div className="content-width">
             <ServiceJourney>
             <div className="section-intro">
@@ -64,8 +65,8 @@ function App() {
                 title="Cada pedido. Todo el recorrido."
               />
               <p>
-                Una operación logística para acompañar <span className="text-bright">el recorrido completo</span>{' '}
-                de los pedidos de e-commerce.
+                Tres servicios para acompañar <span className="text-bright">el recorrido completo</span>{' '}
+                de tus pedidos: almacén, entrega y devolución.
               </p>
             </div>
 
@@ -99,7 +100,8 @@ function App() {
                 </div>
                 <div className="location-content">
                   <h3><ScrollWords text="Los Ángeles" /></h3>
-                  <p>Almacén y operaciones en Estados Unidos.</p>
+                  <p>Almacén con cobertura nacional.</p>
+                  <p>Transportistas: <span className="text-bright">UPS · FedEx · DHL</span></p>
                 </div>
               </article>
               <article className="location-card location-card-zaragoza" id="zaragoza" tabIndex={-1}>
@@ -109,7 +111,8 @@ function App() {
                 </div>
                 <div className="location-content">
                   <h3><ScrollWords text="Zaragoza" /></h3>
-                  <p>Almacén y oficina tecnológica en España.</p>
+                  <p>Almacén con cobertura peninsular e islas.</p>
+                  <p>Transportistas: <span className="text-bright">MRW · SEUR · DHL</span></p>
                 </div>
               </article>
               </div>
@@ -117,26 +120,17 @@ function App() {
           </div>
         </section>
 
-        <section className="future-section section-pad" id="evolucion" aria-labelledby="evolucion-titulo" tabIndex={-1}>
+        <section className="pt-[var(--space-section)]" id="beneficios" aria-labelledby="beneficios-titulo" tabIndex={-1}>
           <div className="content-width">
-            <div className="future-heading-row">
-              <SectionHeading
-                id="evolucion-titulo"
-                eyebrow="LO QUE VIENE · NO DISPONIBLE TODAVÍA"
-                title="Una operación más conectada."
-              />
-              <p>
-                Capacidades previstas para <span className="text-bright">una evolución futura</span> de la
-                plataforma logística de TrackFlow.
-              </p>
-            </div>
-
-            <FutureExplorer />
-            <p className="future-disclaimer">
-              Estas capacidades están previstas y todavía no están disponibles.
-            </p>
+            <SectionHeading
+              id="beneficios-titulo"
+              eyebrow="POR QUÉ TRACKFLOW"
+              title="Tu logística. Nuestro equipo."
+            />
+            <BenefitsShowcase />
           </div>
         </section>
+
       </main>
 
       <SiteFooter />

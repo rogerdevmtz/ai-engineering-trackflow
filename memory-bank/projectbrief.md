@@ -63,5 +63,14 @@ Si se muestran datos de demostración, deben identificarse como tales.
 Explicar con claridad qué vamos haciendo y el propósito de cada cambio.
 No crear copias de respaldo.
 
+Los cambios del segundo hito se preparan y revisan en local. No hacer commit,
+push ni sincronizar con Codespaces hasta aprobación y autorización del estudiante.
+Objetivo de rendimiento elevado por el estudiante a 95 como mínimo en móvil y
+escritorio, conservando calidad visual, diseño y animaciones. Antes de abrir
+la rama del segundo hito, integrar la entrega anterior en main siguiendo la
+indicación de los profesores; preservar los cambios locales durante ese proceso.
+Incorporar únicamente archivos necesarios y con uso comprobado, según
+[repository-hygiene.md](../.agents/rules/repository-hygiene.md).
+
 Se respetará la estructura del monorepositorio y se consultarán
 sus README antes de introducir nuevas carpetas o aplicaciones.

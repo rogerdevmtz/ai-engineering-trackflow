@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solicitar información | TrackFlow</title>
+    <meta name="description" content="Cuéntanos las necesidades logísticas de tu e-commerce: almacenaje, última milla y logística inversa en Estados Unidos y España." />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/index.css" />
+    <script type="module" src="/validation.js"></script>
+    <link rel="preload" href="/fonts/archivo-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/phudu-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al formulario</a>
+    <header class="application-header sticky top-5 z-10 mx-auto mt-5 rounded-[22px] border border-white/10 bg-[#101010] py-1 pr-1 pl-5 shadow-[inset_0_1px_0_#ffffff0a] supports-[backdrop-filter:blur(16px)]:bg-[#080808a8] supports-[backdrop-filter:blur(16px)]:backdrop-blur-lg">
+      <nav aria-label="Navegación principal" class="mx-auto flex min-h-[60px] max-w-[1398px] items-center justify-between gap-4">
+        <a href="/" aria-label="TrackFlow, inicio" class="inline-flex min-h-11 items-center">
+          <img src="/brand/trackflow-logo.svg" alt="" width="760" height="154" class="h-auto w-24 sm:w-32" />
+        </a>
+        <a href="/" class="action-link button-secondary" aria-label="Volver al inicio">
+          <span class="rolling-label" data-rolling-label="Volver al inicio">Volver al inicio</span>
+          <span class="action-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13 8H4m3.5-4.5L3 8l4.5 4.5" /></svg></span>
+        </a>
+      </nav>
+    </header>
+
+    <main id="contenido" tabindex="-1" class="mx-auto max-w-[1552px] px-5 pb-12 pt-10 sm:px-8 sm:pt-14 lg:grid lg:grid-cols-[0.8fr_1.2fr] lg:gap-14 lg:px-14 lg:pt-16 xl:gap-20">
+      <section aria-labelledby="solicitud-titulo" class="application-intro mb-7 self-start sm:grid sm:grid-cols-[1.1fr_0.9fr] sm:gap-x-8 sm:gap-y-4 lg:sticky lg:top-28 lg:mb-0 lg:block">
+        <h1 id="solicitud-titulo" class="max-w-lg self-end font-[family-name:var(--font-display)] text-[clamp(34px,10vw,42px)] leading-[1.02] font-medium tracking-[-0.03em] sm:text-[44px] lg:text-[clamp(44px,4vw,60px)]">Hablemos de<br />tu <span class="text-[#FD430B]">logística.</span></h1>
+        <p class="col-start-1 row-start-2 mt-3 max-w-md self-start text-sm leading-6 text-[#bdbdbd] sm:mt-0 sm:text-base sm:leading-7 lg:mt-4">Cuéntanos qué necesita tu <span class="whitespace-nowrap">e-commerce.</span><span class="hidden sm:inline"> Almacenaje, última milla y devoluciones en Estados Unidos y España.</span></p>
+        <figure class="col-start-2 row-span-2 row-start-1 mt-5 aspect-[2/1] self-center overflow-hidden rounded-[22px] border border-[#252525] sm:mt-0 sm:aspect-[8/5] lg:mt-6">
+          <picture class="block h-full w-full">
+            <source media="(max-width: 639px)" srcset="/application-consultation-mobile-v1.webp" width="840" height="420" />
+            <img src="/application-consultation-desktop-v1.webp" width="1200" height="800" alt="Ilustración generada con IA: dos personas conversan sobre necesidades logísticas con una tablet y un paquete" class="block h-full w-full object-cover object-center" />
+          </picture>
+        </figure>
+      </section>
+
+      <div class="application-form-column min-w-0">
+        <noscript><p class="mb-6 rounded-2xl border border-[#ff9a73] p-5 text-[#ff9a73]">Activa JavaScript para usar este formulario.</p></noscript>
+        <div id="error-summary" tabindex="-1" role="alert" hidden class="mb-6 scroll-mt-28 rounded-2xl border border-[#ff9a73] p-5">
+          <h2 id="error-summary-title" class="font-semibold">Revisa los campos indicados</h2>
+          <a id="first-error-link" class="mt-2 inline-flex min-h-11 items-center text-sm text-[#ff9a73] underline underline-offset-4">Ir al primer campo pendiente</a>
+        </div>
+
+        <form id="application-form" novalidate aria-label="Solicitud de información" aria-describedby="form-help">
+          <nav aria-label="Pasos de la solicitud" class="mb-5 scroll-mt-28">
+            <ol class="grid grid-cols-3 gap-1 rounded-[18px] border border-[#252525] bg-[#080808] p-1">
+              <li><button type="button" data-step-target="0" disabled class="application-step" aria-current="step"><span class="application-step-number">01</span><span>Contacto</span></button></li>
+              <li><button type="button" data-step-target="1" disabled class="application-step"><span class="application-step-number">02</span><span>Operación</span></button></li>
+              <li><button type="button" data-step-target="2" disabled class="application-step"><span class="application-step-number">03</span><span>Necesidades</span></button></li>
+            </ol>
+          </nav>
+          <div class="mb-6 flex flex-col items-start gap-1">
+            <h2 id="step-heading-title" tabindex="-1" class="scroll-mt-28 text-lg font-medium">Tu empresa y contacto</h2>
+            <p id="form-help" class="text-[11px] text-[#a8a8a8]"><span aria-hidden="true" class="text-[#ff9a73]">*</span> Campos obligatorios</p>
+          </div>
+          <section data-step-panel="0" aria-labelledby="step-title-0">
+          <fieldset class="min-w-0">
+            <legend id="step-title-0" class="sr-only">Tu empresa y contacto</legend>
+            <div class="clear-both grid gap-x-5 gap-y-6 sm:grid-cols-2">
+              <div>
+                <label for="company" class="application-label">Nombre de la empresa <span aria-hidden="true">*</span></label>
+                <input id="company" name="company" type="text" autocomplete="organization" required minlength="2" class="application-control" placeholder="Nombre comercial o razón social" aria-describedby="company-error" />
+                <p id="company-error" class="application-error" aria-live="polite"></p>
+              </div>
+              <div>
+                <label for="contact" class="application-label">Persona de contacto <span aria-hidden="true">*</span></label>
+                <input id="contact" name="contact" type="text" autocomplete="name" required class="application-control" placeholder="Nombre y apellido" aria-describedby="contact-error" />
+                <p id="contact-error" class="application-error" aria-live="polite"></p>
+              </div>
+              <div>
+                <label for="email" class="application-label">Email corporativo <span aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" spellcheck="false" required class="application-control" placeholder="nombre@empresa.com" aria-describedby="email-error" />
+                <p id="email-error" class="application-error" aria-live="polite"></p>
+              </div>
+              <div>
+                <label for="phone" class="application-label">Teléfono <span aria-hidden="true">*</span></label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required class="application-control" placeholder="+34 976 123 456" aria-describedby="phone-error" />
+                <p id="phone-error" class="application-error" aria-live="polite"></p>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="website" class="application-label">Sitio web de la empresa <span class="font-normal text-[#a8a8a8]">(opcional)</span></label>
+                <input id="website" name="website" type="url" autocomplete="url" spellcheck="false" class="application-control" placeholder="https://tuempresa.com" aria-describedby="website-error" />
+                <p id="website-error" class="application-error" aria-live="polite"></p>
+              </div>
+            </div>
+          </fieldset>
+          </section>
+
+          <section data-step-panel="1" aria-labelledby="step-title-1">
+          <fieldset class="min-w-0">
+            <legend id="step-title-1" class="sr-only">Tu operación logística</legend>
+            <div class="clear-both grid gap-x-5 gap-y-6 sm:grid-cols-2">
+              <div>
+                <label for="country" class="application-label">País de operación principal <span aria-hidden="true">*</span></label>
+                <select id="country" name="country" required class="application-control" aria-describedby="country-error">
+                  <option value="">Selecciona un país</option><option>Estados Unidos</option><option>España</option><option>Ambos</option><option>Otro</option>
+                </select>
+                <p id="country-error" class="application-error" aria-live="polite"></p>
+              </div>
+              <div>
+                <label for="product" class="application-label">Tipo de producto <span aria-hidden="true">*</span></label>
+                <select id="product" name="product" required class="application-control" aria-describedby="product-error">
+                  <option value="">Selecciona un producto</option><option>Moda</option><option>Electrónica</option><option>Cosmética</option><option>Alimentación</option><option>Otro</option>
+                </select>
+                <p id="product-error" class="application-error" aria-live="polite"></p>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="volume" class="application-label">Volumen mensual estimado de envíos <span aria-hidden="true">*</span></label>
+                <select id="volume" name="volume" required class="application-control" aria-describedby="volume-error volume-warning">
+                  <option value="">Selecciona un volumen</option><option>0-100</option><option>101-500</option><option>501-2000</option><option>2000+</option><option>No estoy seguro</option>
+                </select>
+                <p id="volume-error" class="application-error" aria-live="polite"></p>
+              </div>
+            </div>
+            <div id="volume-warning" hidden class="mt-5 rounded-2xl border border-[#ff9a73]/50 bg-[#101010] p-5 text-sm">
+              <p id="volume-warning-text" role="status" class="leading-6 text-[#dedede]">Para volúmenes menores a 100 envíos mensuales, nuestros servicios podrían no ser la solución más eficiente. ¿Seguro que quieres continuar?</p>
+              <button id="confirm-volume" type="button" class="application-button mt-4" aria-pressed="false" aria-describedby="volume-warning-text">Continuar con este volumen</button>
+            </div>
+            <fieldset id="services-group" class="mt-7" aria-describedby="services-error">
+              <legend class="application-label">Servicios de interés <span aria-hidden="true">*</span></legend>
+              <p id="services-help" class="mb-3 text-xs text-[#a8a8a8]">Selecciona al menos uno.</p>
+              <div class="grid gap-3 sm:grid-cols-3">
+                <label for="service-storage" class="application-choice"><input id="service-storage" name="services" type="checkbox" value="Almacenaje" required class="h-4 w-4 shrink-0 accent-[#FD430B]" aria-describedby="services-error" />Almacenaje</label>
+                <label for="service-delivery" class="application-choice"><input id="service-delivery" name="services" type="checkbox" value="Última milla" class="h-4 w-4 shrink-0 accent-[#FD430B]" aria-describedby="services-error" />Última milla</label>
+                <label for="service-returns" class="application-choice"><input id="service-returns" name="services" type="checkbox" value="Logística inversa" class="h-4 w-4 shrink-0 accent-[#FD430B]" aria-describedby="services-error" />Logística inversa</label>
+              </div>
+              <p id="services-error" class="application-error" aria-live="polite"></p>
+            </fieldset>
+            <fieldset id="provider-group" class="mt-7" aria-describedby="provider-error">
+              <legend class="application-label">¿Actualmente trabajas con otro 3PL? <span aria-hidden="true">*</span></legend>
+              <p class="mb-3 text-xs text-[#a8a8a8]">Un 3PL es un proveedor externo de servicios logísticos.</p>
+              <div class="flex flex-wrap gap-3">
+                <label for="provider-yes" class="application-choice"><input id="provider-yes" name="provider" type="radio" value="Sí" required class="h-4 w-4 accent-[#FD430B]" aria-describedby="provider-error" />Sí</label>
+                <label for="provider-no" class="application-choice"><input id="provider-no" name="provider" type="radio" value="No" required class="h-4 w-4 accent-[#FD430B]" aria-describedby="provider-error" />No</label>
+                <label for="provider-evaluating" class="application-choice"><input id="provider-evaluating" name="provider" type="radio" value="Estoy evaluando opciones" required class="h-4 w-4 accent-[#FD430B]" aria-describedby="provider-error" />Estoy evaluando opciones</label>
+              </div>
+              <p id="provider-error" class="application-error" aria-live="polite"></p>
+            </fieldset>
+          </fieldset>
+          </section>
+
+          <section data-step-panel="2" aria-labelledby="step-title-2">
+          <section aria-label="Resumen de tu solicitud" class="mb-6 rounded-2xl border border-[#353535] bg-[#080808] px-4 text-sm">
+            <div class="py-3">
+              <div class="flex flex-wrap items-center justify-between gap-x-3"><h3 class="font-medium">Contacto</h3><button type="button" data-edit-step="0" class="min-h-11 cursor-pointer text-xs text-[#bdbdbd] underline underline-offset-4 hover:text-white">Editar contacto</button></div>
+              <p id="review-contact" class="break-words whitespace-pre-line text-xs leading-6 text-[#a8a8a8]"></p>
+            </div>
+            <div class="border-t border-[#252525] py-3">
+              <div class="flex flex-wrap items-center justify-between gap-x-3"><h3 class="font-medium">Operación</h3><button type="button" data-edit-step="1" class="min-h-11 cursor-pointer text-xs text-[#bdbdbd] underline underline-offset-4 hover:text-white">Editar operación</button></div>
+              <p id="review-operation" class="break-words whitespace-pre-line text-xs leading-6 text-[#a8a8a8]"></p>
+            </div>
+          </section>
+          <fieldset class="min-w-0">
+            <legend id="step-title-2" class="sr-only">¿Qué necesitas?</legend>
+            <div class="clear-both">
+              <label for="comments" class="application-label">Comentarios o necesidades específicas <span class="font-normal text-[#a8a8a8]">(opcional)</span></label>
+              <textarea id="comments" name="comments" rows="4" maxlength="500" class="application-control resize-y" placeholder="Por ejemplo: qué necesitas almacenar, enviar o gestionar en tus devoluciones." aria-describedby="comments-count comments-error"></textarea>
+              <p id="comments-count" class="mt-2 text-right text-xs text-[#a8a8a8]">0 / 500 caracteres</p>
+              <p id="comments-error" class="application-error" aria-live="polite"></p>
+            </div>
+          </fieldset>
+
+          <div class="mt-8 border-t border-[#252525] pt-6">
+            <label for="privacy" class="flex min-h-11 cursor-pointer items-start gap-3 text-sm text-[#dedede]">
+              <input id="privacy" name="privacy" type="checkbox" required class="mt-1 h-4 w-4 shrink-0 accent-[#FD430B]" aria-describedby="privacy-error" />
+              <span>Acepto política de privacidad <span aria-hidden="true">*</span></span>
+            </label>
+            <p id="privacy-error" class="application-error" aria-live="polite"></p>
+          </div>
+          </section>
+          <div class="application-toolbar mt-8 flex flex-wrap items-center gap-3 border-t border-[#252525] pt-6">
+          <div class="application-actions flex flex-wrap items-center gap-3">
+            <button id="previous-step" type="button" hidden class="action-link button-secondary" aria-label="Anterior"><span class="rolling-label" data-rolling-label="Anterior">Anterior</span><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13 8H4m3.5-4.5L3 8l4.5 4.5" /></svg></span></button>
+            <button id="submit-application" type="submit" disabled class="action-link" aria-label="Continuar"><span id="submit-label" class="rolling-label" data-rolling-label="Continuar">Continuar</span><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h9M8.5 3.5 13 8l-4.5 4.5" /></svg></span></button>
+          </div>
+            <button type="reset" class="ml-auto min-h-11 cursor-pointer px-2 text-xs text-[#a8a8a8] hover:text-white hover:underline hover:underline-offset-4">Limpiar formulario</button>
+          </div>
+          <p id="form-status" role="status" aria-live="polite" class="mt-4 text-sm text-[#bdbdbd] empty:hidden"></p>
+        </form>
+
+        <section id="application-success" hidden aria-labelledby="success-title" class="scroll-mt-28 rounded-[22px] border border-[#353535] bg-[#080808] p-6 sm:p-8">
+          <div aria-hidden="true" class="mb-6 grid size-12 place-items-center rounded-full bg-[#FD430B]/10 text-[#FD430B]"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6" /></svg></div>
+          <h1 id="success-title" tabindex="-1" class="font-[family-name:var(--font-display)] text-4xl leading-tight">¡Gracias por tu interés en TrackFlow!</h1>
+          <p class="mt-6 leading-7 text-[#bdbdbd]">Hemos recibido tu solicitud. Nuestro equipo comercial revisará tu información y te contactará en las próximas 24-48 horas para agendar una llamada y conocer tus necesidades logísticas en detalle.</p>
+          <p class="mt-4 leading-7 text-[#bdbdbd]">Si tienes alguna consulta urgente, escríbenos directamente a <a href="mailto:comercial@trackflow.com" class="text-white underline decoration-white/40 underline-offset-4 hover:decoration-[#FD430B]">comercial@trackflow.com</a>.</p>
+          <button id="new-application" type="button" class="action-link mt-6" aria-label="Nueva solicitud"><span class="rolling-label" data-rolling-label="Nueva solicitud">Nueva solicitud</span><span class="action-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h9M8.5 3.5 13 8l-4.5 4.5" /></svg></span></button>
+        </section>
+      </div>
+    </main>
+    <footer class="mx-auto max-w-[1552px] px-5 pb-6 sm:px-8 lg:px-14">
+      <p class="border-t border-[#252525] pt-5 text-xs text-[#a8a8a8]">© 2026 TrackFlow</p>
+    </footer>
+  </body>
+</html>

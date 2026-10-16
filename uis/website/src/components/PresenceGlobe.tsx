@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { createGlobeRenderer } from './globeRenderer'
+import type { createGlobeRenderer } from './globeRenderer'
 
 function PresenceGlobe() {
   const container = useRef<HTMLDivElement>(null)
@@ -9,17 +9,30 @@ function PresenceGlobe() {
   const [ready, setReady] = useState(false)
   const [visible, setVisible] = useState(false)
   const [pageVisible, setPageVisible] = useState(true)
+  const [nearby, setNearby] = useState(false)
 
   useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      setNearby(true)
+      observer.disconnect()
+    }, { rootMargin: '600px' })
+    if (container.current) observer.observe(container.current)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!nearby) return
     const controller = new AbortController()
     const preference = matchMedia('(prefers-reduced-motion: reduce)')
     const sync = () => renderer.current?.setRunning(running.current && !preference.matches)
-    fetch('/globe-land.json', { signal: controller.signal })
-      .then(response => {
+    Promise.all([
+      import('./globeRenderer'),
+      fetch('/globe-land.json', { signal: controller.signal }).then(response => {
         if (!response.ok) throw new Error('Globe geography unavailable')
         return response.json()
-      })
-      .then(coordinates => {
+      }),
+    ]).then(([{ createGlobeRenderer }, coordinates]) => {
         if (!canvas.current || controller.signal.aborted) return
         renderer.current = createGlobeRenderer(canvas.current, coordinates)
         setReady(Boolean(renderer.current))
@@ -33,7 +46,7 @@ function PresenceGlobe() {
       renderer.current = null
       preference.removeEventListener('change', sync)
     }
-  }, [])
+  }, [nearby])
 
   useEffect(() => {
     running.current = visible && pageVisible

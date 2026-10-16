@@ -48,19 +48,73 @@ La referencia material es el nav de la web principal:
 
 | Zona | Escritorio | Móvil |
 | --- | --- | --- |
-| Nav | Marca, tres enlaces y CTA; fijo, cristal oscuro | Marca, CTA compacto y menú; hasta 360px CTA disponible en hero/menú |
+| Nav | Marca, Inicio/Servicios/Cobertura/Contacto y CTA; fijo, cristal oscuro | Marca, CTA compacto y menú; hasta 360px CTA disponible en hero |
 | Hero | Imagen panorámica; H1 en el espacio oscuro | Imagen vertical hasta 520px; dos CTA juntos |
 | Transportistas | Cinco logos monocromos | Carrusel continuo hasta 760px; estático con movimiento reducido |
-| Servicios | Encabezado/foto fijos y lista que avanza | Foto arriba, etapa debajo; flujo normal si no cabe |
-| Operación | Globo y dos sedes | Composición centrada |
-| Evolución | Esquema izquierdo y desplegables derechos | Esquema dentro del apartado hasta 980px |
-| Footer | Enlaces y firma sobre foto nocturna | Grupos centrados; foto vertical hasta 760px |
+| Servicios | Encabezado/foto fijos y lista de tres servicios que avanza | Foto arriba, etapa debajo; flujo normal si no cabe |
+| Cobertura | Globo y dos columnas: Los Ángeles/EE. UU. y Zaragoza/España | Sedes apiladas, composición centrada |
+| Beneficios | Cuatro pestañas y panel con texto/visual en dos columnas | Pestañas en cuadrícula 2×2, texto y visual apilados |
+| Contacto | Parte superior del footer: titular/CTA juntos y tres filas de datos a la derecha | Titular/CTA, email y teléfonos compactos debajo |
+| Footer | Contacto integrado, servicios y firma sobre foto nocturna; derechos y LinkedIn | Composición a la izquierda, foto vertical y cierre apilado |
 
 Contenedor máximo 1440px, ancho `calc(100% - 112px)`; hasta 1100px,
 `calc(100% - 64px)`; hasta 760px, 20px por lado. H2 de servicios,
-operación y evolución comparten escala 44–76px, 44–60px en móvil.
+operación y beneficios comparten escala 44–76px, 44–60px en móvil.
 Conservar un H1, destinos de las anclas y servicios reutilizables.
 Hero sin filtros globales ni sombras de texto; fundir solo los bordes.
+Titular del módulo en tres líneas: «Logística que / escala con tu / e-commerce»,
+con la última naranja. Subtítulo completo y CTA «Solicitar información» al
+formulario; secundaria «Ver cobertura» conserva el ancla `#operacion`.
+Contacto enlaza a `#contacto`, sección al inicio de `SiteFooter`, con correo,
+teléfonos de ambas sedes y CTA al formulario separado. El pie conserva servicios,
+foto y firma; se retira la lista de sedes repetida y el enlace a sí mismo.
+Escala móvil del hero ajustada para evitar una cuarta línea.
+Servicios: Gestión de almacenes (incluye picking y packing), Entregas de última
+milla y Logística inversa. Tres escenas existentes, numeración 01–03 y enlaces
+del footer coherentes. El enlace histórico `#preparacion` selecciona almacenes.
+Se conserva el recorrido visual aprobado; no se cambia a tres columnas estáticas.
+El estudiante ratificó el 16/10/2026 recuperar exactamente este recorrido,
+descartando también la variante de tres columnas con énfasis por scroll.
+Su composición se expresa con utilidades Tailwind en ServiceJourney;
+la medición y amortiguación originales siguen en JavaScript.
+Cobertura mantiene globo, anclas y sedes. Los Ángeles muestra cobertura nacional
+y UPS/FedEx/DHL; Zaragoza, cobertura peninsular e islas y MRW/SEUR/DHL.
+Texto de transportistas destacado dentro de cada sede, sin nuevos logos ni tarjetas.
+Beneficios entre cobertura y contacto: equipo (unos 130 profesionales), operación
+binacional, tecnología propia y especialización e-commerce. `BenefitsShowcase`
+adapta el patrón de pestañas/panel de la referencia Automora, conservando la
+identidad TrackFlow. Primer panel humano para continuar la cobertura geográfica.
+Visuales tipográficos y SVG propios: equipo, US/ES, desarrollo y sectores; sin
+fotografías nuevas ni métricas inventadas. Tecnología propia describe el equipo
+y sus herramientas, sin prometer visibilidad total. Todo el estilo nuevo usa
+utilidades Tailwind en JSX, sin CSS personalizado ni estilos inline.
+Cuatro pestañas desde 768px, dos columnas por debajo; panel dividido desde
+1024px y apilado antes. Altura compartida para evitar saltos entre paneles.
+Flechas/Home/End, foco visible y un solo panel accesible; fundido de opacidad
+200ms con la curva existente, inmediato por teclado o movimiento reducido.
+Sin autoplay, scroll fijado ni nuevas dependencias.
+Refinamiento posterior: pestañas abiertas sobre una línea divisoria, una única
+superficie de panel y visuales sin tarjeta interior. Sin contador ni frases de
+cierre repetidas: un titular, un párrafo y un visual por ventaja. La cifra
+aproximada aparece solo en el visual humano; los sectores, solo junto a sus
+iconos. Visuales informativos accesibles y circuito tecnológico decorativo.
+Panel de 350px en escritorio y composición móvil más compacta; ajustar cifra
+y puntos bajo 360px sin desbordamiento. Conservar solo detalles que aporten
+información o jerarquía, evitando acumular etiquetas, marcos y separadores.
+Contacto usa mailto/tel y áreas de al menos 44px. Titular Phudu de 44px en móvil
+y 56px desde sm, con CTA justo debajo. Desde 1024px, bloque de titular a la
+izquierda y address a la derecha; antes se apilan. Tres filas abiertas con
+numeración naranja 01–03, títulos Phudu y datos en Archivo, siguiendo el
+lenguaje del recorrido de servicios. Cada fila completa enlaza al correo o
+al teléfono de la sede; flecha horizontal con el mismo trazado de ActionLink.
+Línea naranja y círculo de acción responden a hover/foco; movimiento reducido
+anula transiciones. Sin tarjetas de sedes ni un bloque independiente de email.
+Se conservan 80px tras beneficios en móvil / 112px en escritorio, 48px
+verticales de contacto / 64px desde lg y 48px antes del bloque fotográfico.
+El cierre muestra «© 2026 TrackFlow. Todos los derechos reservados.» y LinkedIn
+en pestaña nueva con nombre accesible explícito. Foto responsive, oscurecimiento
+y firma grande conservados en un bloque visual propio bajo contacto.
+Todo SiteFooter usa utilidades Tailwind; no quedan sus selectores CSS antiguos.
 
 Acciones `ActionLink`/`RollingLabel`: principal naranja, secundaria con
 borde. Áreas de interacción de al menos 44px; CTA visual del nav móvil
@@ -71,14 +125,90 @@ Movimiento: hero por líneas 850ms con desfase de 80ms; titulares por
 opacidad ligada al scroll; botones/letras 240ms. Servicios con scroll
 nativo reversible, amortiguación 88ms escritorio / 64ms móvil y fundido
 520ms; teclado inmediato. Si el contenido no cabe, poca altura o movimiento
-reducido, usar flujo normal. Evolución: apertura/fundido 280ms y explicación
-200ms; un apartado abierto como máximo, sin autoplay.
+reducido, usar flujo normal. La sección de capacidades futuras fue retirada
+por decisión del estudiante; no mostrar el explorador conceptual en la landing.
 
 Globo: recorrido ilustrativo único de 4.5s, máximo 24fps, pausa fuera de
 pantalla/pestaña oculta. Carrusel móvil: 62s continuo, sin botón de pausa
 por decisión expresa; se suspende fuera de vista y queda estático con
 movimiento reducido. Este comportamiento conserva una limitación WCAG 2.2.2;
 no afirmar conformidad completa.
+
+## Formulario del website — propuesta local del 16/10/2026
+
+En `/application.html`, conservar negro/naranja, Archivo/Phudu, marca SVG y
+cabecera de cristal oscuro. Escena de asesoría logística con tablet y paquete,
+identificada como ilustración en alt: horizontal bajo la introducción en escritorio,
+junto al texto en tablet y como fondo del titular y su párrafo en móvil.
+Dos columnas desde 1024px: introducción fija a la
+izquierda y formulario a la derecha; flujo único en móvil y tablet.
+Tres pasos: contacto, operación y necesidades, con progreso, validación antes
+de avanzar, regreso sin pérdida de datos y resumen compacto antes de enviar,
+con accesos a editar contacto y operación.
+Un único indicador de progreso en una superficie oscura compartida; el paso
+actual tiene fondo elevado y número naranja. Sin contador «Paso X de 3»
+ni separador repetido debajo. En móvil, números sobre etiquetas para evitar cortes.
+Cabecera del formulario alineada con el ancho interior del contenido, máximo
+1440px. Ayuda de campos obligatorios bajo el título del paso. Introducción más
+breve e imagen con texto superpuesto en móvil, en un bloque de altura mínima
+300px y radio 22px. Degradado oscuro de arriba abajo para leer el título y párrafo
+en la parte inferior sin ocultar las caras arriba. El texto sigue siendo HTML,
+con un único h1; el bloque crece si el contenido lo necesita.
+El formulario termina con un copyright
+discreto «© 2026 TrackFlow», sin foto ni firma grande al pie. La landing conserva
+su footer visual completo.
+Dos imágenes propias del formulario, sin caption visible; mantener su
+identificación como ilustración en alt y documentación. Sin eyebrow genérico
+«Solicitud de información» sobre el titular. Desplazamiento inmediato al cambiar
+el foco entre pasos o errores; el scroll suave de la landing se conserva.
+Columnas en proporción 40/60 con un espacio de 56–80px, alineadas arriba.
+Titular limitado a 60px e imagen horizontal en marco 8:5 para equilibrar la
+altura del bloque izquierdo con los controles del primer paso.
+«Volver al inicio», «Anterior» y «Continuar/Enviar» usan el mismo sistema de
+acciones de la landing; sus estilos comunes residen ahora en `src/index.css`.
+Controles con utilidades Tailwind, altura mínima 48px, radio 16px y texto 16px;
+el borde de entradas/selects es #626262 sobre #101010 para mejorar su identificación
+(3,12:1). El foco naranja y los estados de error permanecen. La confirmación
+utiliza h1; solo un encabezado principal está visible en cada estado.
+Selects nativos con chevron SVG decorativo de 16px, centrado verticalmente y a
+16px del borde derecho, con 48px reservados para evitar solaparlo con el texto.
+En colores forzados se restaura la flecha nativa del sistema.
+Etiquetas persistentes y ejemplos de formato dentro de los campos como placeholder.
+Nombre y apellido, teléfono internacional, email y URL no repiten ayuda debajo;
+los errores y el contador de comentarios conservan su espacio cuando corresponde.
+opciones seleccionadas con borde naranja. Errores en el tono de foco `#FF9A73`,
+con mensaje y `aria-invalid`, sin depender solo del color. Resumen de errores con
+contador y acceso al primer campo pendiente; foco directo al campo en móvil.
+Cada error se muestra y anuncia junto a su campo, sin copiarlo al pie de las
+acciones. El aviso de volumen y su botón concentran su advertencia y confirmación.
+Acción principal a todo el ancho disponible en móvil, junto a «Anterior» cuando
+corresponde. Bajo 640px, las acciones se fijan al borde inferior en una barra
+oscura con separador y padding que incluye safe-area-inset-bottom. La limpieza
+queda fuera de la barra, al final del contenido. Reservar la altura real de las
+acciones más 16px al final de la página y en el desplazamiento de foco para
+mantener campos, errores, privacidad y footer accesibles. Ocultar la barra al
+reducirse el viewport por el teclado y recuperarla al cerrarse. Éxito y aviso de
+volumen usan la misma paleta. En revisión local; pendiente aprobación del estudiante.
+
+Al cambiar de paso, el foco va al título y el progreso queda bajo la cabecera
+cuando estaba fuera de vista. Evitar sumar scroll-padding y scroll-margin.
+Con ratón/táctil, entrada direccional de 8px y opacidad durante 180ms con
+`--ease-out`, mediante WAAPI; cancelar la entrada anterior al navegar de nuevo.
+Teclado y movimiento reducido cambian de paso inmediatamente. Controles con
+transiciones de borde/fondo/color de 160ms; hover solo con puntero fino.
+Respuesta de presión discreta en acciones, sin transformar el foco de teclado.
+Por debajo de 360px, primario y anterior ocupan filas completas para evitar cortes.
+Editar desde el resumen cambia el primario a «Guardar» y regresa directamente
+al resumen tras validar ambos pasos y la confirmación de volumen.
+Confirmación en una superficie oscura con check naranja y mensaje del hito.
+En todos los tamaños se oculta la introducción y se muestra una única tarjeta
+centrada, de ancho máximo 720px y altura determinada por el contenido.
+Sin columnas, altura forzada ni espacio elástico entre mensaje y acción.
+Botón «Nueva solicitud» del mismo sistema de acciones. Por petición expresa del
+estudiante, el formulario y la confirmación no muestran textos de demostración.
+En la confirmación, mostrar solo el cierre bajo la navegación; restaurar la
+introducción y el formulario con «Nueva solicitud».
+La barra fija y su espacio reservado desaparecen al confirmar.
 
 ## Backoffice
 
@@ -148,3 +278,25 @@ Verificar ambos layouts, teclado, filtros, detalles, menú, anclas, imágenes,
 consola y desbordamiento. Ejecutar lint/build y pruebas disponibles.
 No certificar WCAG completa, tracking real o IA implementada: pedidos demo
 y capacidades futuras deben permanecer identificados.
+
+## Revisión responsive y accesibilidad del 16/10/2026
+
+Recorrido original ratificado como decisión de diseño para mejorar el flujo.
+Se conserva su composición e interacción; no sustituirlo por columnas.
+Hero, menú, marca, controles, cobertura e introducción/barra del formulario
+parten ahora de móvil y amplían con variantes min-width Tailwind, manteniendo
+medidas, tipografía, imágenes y colores aprobados. Rangos de máscara, movimiento
+y poca altura son ajustes técnicos. Email de confirmación enlazado con mailto.
+Comprobados foco, teclado, ARIA, tres pasos, movimiento reducido y colores
+forzados en navegador. La limitación del carrusel sin pausa se mantiene;
+no se certifican lector de pantalla real ni pruebas en móvil físico.
+
+## Carga optimizada — objetivo de rendimiento 95
+
+Las mismas fuentes Archivo y Phudu del website se sirven como WOFF2 locales
+con preload; sus licencias OFL acompañan los archivos. No cambia la tipografía.
+El recorrido prepara sus fotos originales 400px antes de entrar, prioriza la
+activa y conserva una foto cargada mientras llega la siguiente. El globo se
+prepara a 600px con su renderer/geografía y mantiene fallback, duración y pausa
+fuera de vista. No cambian imágenes, dimensiones, calidad, encuadre, scroll,
+amortiguación, fundidos ni tiempos de animación. Formulario conserva sus estados.

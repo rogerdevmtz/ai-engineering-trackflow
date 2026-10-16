@@ -29,12 +29,46 @@ test('published metadata has one canonical URL, consistent graph and sitemap', (
   assert.doesNotMatch(result.sitemap, /#almacenamiento/)
   const json = JSON.parse(result.head.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1])
   assert.equal(json['@graph'].find(item => item['@type'] === 'Service').provider['@id'], 'https://example.com/#organizacion')
-  assert.doesNotMatch(result.head, /aggregateRating|telephone|streetAddress|FAQPage/)
+  assert.doesNotMatch(result.head, /aggregateRating|streetAddress|FAQPage/)
+  assert.equal(json['@graph'].find(item => item['@type'] === 'Organization').url, 'https://trackflow.com')
+  assert.equal(json['@graph'].find(item => item['@type'] === 'WebSite').url, 'https://example.com/')
+})
+
+test('organization includes the official TrackFlow schema in local and configured builds', () => {
+  for (const env of [{}, { SITE_URL: 'https://example.com', SITE_INDEXABLE: 'false' }, { SITE_URL: 'https://example.com', SITE_INDEXABLE: 'true' }]) {
+    const result = createSearchFiles(resolveSiteConfig(env), content)
+    const json = JSON.parse(result.head.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1])
+    assert.equal(json['@context'], 'https://schema.org')
+    const organizations = json['@graph'].filter(item => item['@type'] === 'Organization')
+    assert.equal(organizations.length, 1)
+    const organization = organizations[0]
+    assert.equal(organization.name, 'TrackFlow')
+    assert.equal(organization.description, 'Gestión de almacenes y entregas de última milla para e-commerce')
+    assert.equal(organization.url, 'https://trackflow.com')
+    assert.equal(organization.foundingDate, '2009')
+    assert.deepEqual(organization.address, [
+      { '@type': 'PostalAddress', addressCountry: 'US', addressLocality: 'Los Ángeles', addressRegion: 'California' },
+      { '@type': 'PostalAddress', addressCountry: 'ES', addressLocality: 'Zaragoza', addressRegion: 'Aragón' },
+    ])
+    assert.deepEqual(organization.contactPoint, { '@type': 'ContactPoint', telephone: '+1-213-555-0147', email: 'comercial@trackflow.com', contactType: 'sales', availableLanguage: ['Spanish', 'English'] })
+    assert.deepEqual(organization.sameAs, ['https://linkedin.com/company/trackflow'])
+    assert.deepEqual(organization.areaServed, [{ '@type': 'Country', name: 'Estados Unidos' }, { '@type': 'Country', name: 'España' }])
+    assert.deepEqual(organization.location.map(place => place.address), organization.address)
+    for (const service of json['@graph'].filter(item => item['@type'] === 'Service')) assert.equal(service.provider['@id'], organization['@id'])
+    if (env.SITE_INDEXABLE !== 'true') {
+      assert.match(result.head, /noindex, nofollow/)
+      assert.equal(result.sitemap, null)
+    }
+    if (!env.SITE_URL) assert.equal(json['@graph'].some(item => item['@type'] === 'WebSite'), false)
+  }
 })
 
 test('metadata escapes HTML and script terminators', () => {
-  const result = createSearchFiles(resolveSiteConfig({}), { ...content, siteTitle: '<TrackFlow> & "envíos"', siteDescription: '</script><script>alert(1)</script>' })
+  const description = '</script><script>alert(1)</script>'
+  const result = createSearchFiles(resolveSiteConfig({}), { ...content, siteTitle: '<TrackFlow> & "envíos"', siteDescription: description, services: [{ ...content.services[0], description }] })
   assert.match(result.head, /&lt;TrackFlow&gt; &amp; &quot;envíos&quot;/)
   assert.equal((result.head.match(/<script/g) ?? []).length, 1)
   assert.doesNotMatch(result.head, /<script>alert/)
+  const json = JSON.parse(result.head.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1])
+  assert.equal(json['@graph'].find(item => item['@type'] === 'Service').description, description)
 })
