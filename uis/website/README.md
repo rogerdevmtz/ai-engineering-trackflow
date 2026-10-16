@@ -276,7 +276,9 @@ instalación, lint, 14 pruebas y build correctos. Preview pública:
 https://super-engine-6vvqp55594jx2r9gj-3000.app.github.dev/
 
 PageSpeed auditó el aviso de GitHub en ambos perfiles; esas notas se descartan.
-Pendientes capturas válidas de Lighthouse DevTools y PR con URL/evidencia.
+[PR #2](https://github.com/rogerdevmtz/ai-engineering-trackflow/pull/2) abierta
+con URL y dos capturas de Lighthouse CLI, identificadas como tales. Pendiente
+aceptación docente del formato CLI o evidencia DevTools válida.
 La URL requiere que el Codespace y el servidor permanezcan encendidos.
 
 Seguir el orden de evaluación del enunciado: subir el código revisado, ejecutar

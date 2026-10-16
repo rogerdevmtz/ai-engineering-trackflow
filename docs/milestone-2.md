@@ -54,7 +54,7 @@ completo del formulario en navegador móvil y escritorio.
 | Resolver beneficios literales | Exclusividad binacional y visibilidad total no acreditadas por briefing local; se usan afirmaciones prudentes. Cifra aproximada ~130 en vez de +130. |
 | Accesibilidad fuera del alcance verificado | Revisión local de teclado, foco, ARIA, errores, movimiento reducido y colores forzados completada. Lector de pantalla real, contraste exhaustivo de imágenes y móvil físico pendientes. Carrusel sin pausa conserva la limitación WCAG 2.2.2 por decisión expresa. |
 | Evidencia de evaluación | CLI local: 95 móvil / 100 escritorio. PageSpeed público ejecutado en ambos perfiles; auditó el aviso de acceso de GitHub, no TrackFlow. Resultados descartados. Faltan capturas válidas de Lighthouse DevTools, alternativa prevista por el hito. |
-| Publicación y entrega | PR #1 integrada en main (f0d6d9c). Rama local codex/hito-2-web-publica creada desde main actualizado, conservando todos los cambios. Lint, 14 pruebas y build correctos. Commit 755cf92 subido a origin/codex/hito-2-web-publica con 39 rutas revisadas. Codespaces actualizado a 1ea867d, preview pública en puerto 3000. Pendientes capturas válidas y PR con URL/evidencia. |
+| Publicación y entrega | PR #1 integrada en main (f0d6d9c). Rama local codex/hito-2-web-publica creada desde main actualizado, conservando todos los cambios. Lint, 14 pruebas y build correctos. Commit 755cf92 subido a origin/codex/hito-2-web-publica con 39 rutas revisadas. Codespaces actualizado a 1ea867d, preview pública en puerto 3000. PR #2 abierta con URL pública y capturas CLI identificadas; pendiente aceptación docente del formato de evidencia y demás diferencias documentadas. |
 
 Tailwind: convencionales migrados; permanecen excepciones técnicas documentadas
 para movimiento/gráficos/foco. Verificar su justificación si el docente exige
@@ -437,3 +437,16 @@ Informes originales HTML/JSON fuera del repositorio, en la carpeta temporal
 trackflow-lighthouse-20261016, prefijo local-review-landing-mobile/desktop.
 Esta tarea no repitió el formulario ni lint/build; el código no cambió y se
 conservan las comprobaciones fechadas anteriores. Sin commit/push en esta tarea.
+
+## PR del segundo hito abierta — 16/10/2026
+
+[PR #2: Hito 2: web pública y formulario de TrackFlow](https://github.com/rogerdevmtz/ai-engineering-trackflow/pull/2)
+creada desde codex/hito-2-web-publica hacia main. Incluye enlaces a landing y
+formulario públicos, las dos capturas CLI, resultados y origen de medición,
+limitaciones de PageSpeed/DevTools y diferencias de contenido/diseño/accesibilidad.
+Comprobada la carga de ambas imágenes en la descripción. Lint, 14 pruebas
+y build repetidos correctamente antes de crearla. No se realizó merge.
+
+Pendientes de entrega: revisión docente, aceptación de CLI o evidencia DevTools
+alternativa válida, entrega de la URL del repositorio y merge tras aprobación.
+CONTEXT.md, company-choice.md y .devcontainer sin cambios frente a main.

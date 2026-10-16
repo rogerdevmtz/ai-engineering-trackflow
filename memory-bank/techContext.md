@@ -136,4 +136,6 @@ ServiceJourney prepara fotos originales a 400px, prioriza la activa, conserva
 la última cargada y trata imágenes en caché; fallback de primera foto sin JS.
 No se editan fotos, resoluciones, encuadres, estilos ni tiempos de animación.
 Lighthouse final estándar: landing 95/100 y formulario 100/100; móvil de landing
-repetido tres veces a 95. Informes y capturas CLI fuera del repositorio.
+repetido tres veces a 95. Informes CLI completos fuera del repositorio; dos
+capturas seleccionadas de landing en docs/evidence, enlazadas en PR #2 con
+origen CLI explícito. Sin certificar aceptación docente del formato.

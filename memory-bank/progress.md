@@ -1197,3 +1197,19 @@ seleccionados con uso en diagnóstico y descripción de PR; informes HTML/JSON
 y temporales permanecen fuera. Repetidos lint, 14 pruebas y build correctamente
 en local antes de abrir la PR. Diff --check correcto y archivos protegidos
 sin cambios respecto a main. Pendiente confirmar creación y URL de la PR.
+
+## 16/10/2026 — PR #2 creada y evidencias publicadas
+
+Commit 276f9fc subió únicamente dos PNG seleccionados y documentación/memoria.
+Creada y adjuntada [PR #2](https://github.com/rogerdevmtz/ai-engineering-trackflow/pull/2)
+desde codex/hito-2-web-publica hacia main; abierta y no fusionada. Descripción
+con URL pública Codespaces, formulario, capturas CLI identificadas, 95/100
+de rendimiento, incidencias PageSpeed/NO_FCP y diferencias documentadas.
+Ambas imágenes comprobadas cargadas en navegador con dimensiones originales.
+
+Lint, 14 pruebas y build locales repetidos correctamente en esta tarea.
+Diff --check correcto; archivos protegidos intactos frente a main. No se
+incluyeron builds, dependencias instaladas, informes HTML/JSON, temporales
+ni capturas exploratorias. Preview pública respondió HTTP 200 en esta revisión.
+Próximo paso: revisión/aceptación docente de CLI y diferencias, entregar URL
+del repositorio y merge solo tras aprobación; no se hizo entrega en campus.
