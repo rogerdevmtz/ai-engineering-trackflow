@@ -1,6 +1,6 @@
 # TrackFlow — Contexto técnico
 
-Actualizado el 16/10/2026. Negocio y alcance: [projectbrief.md](projectbrief.md).
+Actualizado el 09/11/2026. Negocio y alcance: [projectbrief.md](projectbrief.md).
 
 ## Stack y organización
 
@@ -38,6 +38,30 @@ No versionar node_modules, dist, archivos .local, logs ni secretos.
 No crear copias de respaldo, según la instrucción del estudiante.
 
 ## Decisiones de implementación
+
+Hito de fundamentos: `packages/logistics` contiene los modelos oficiales,
+19 funciones y dos utilidades adicionales para orden multicampo/extremos.
+API en src/index.ts; ejemplos compartidos por demo, pruebas y laboratorio.
+Node >=24 ejecuta TS nativo, TypeScript 6.0.3 resuelto para typecheck estricto;
+sin dependencias de ejecución. Desde raíz: `pnpm --dir packages/logistics`
+seguido de `install --frozen-lockfile`, `typecheck`, `test` o `demo`.
+Reglas y casos límite en su README; matriz en docs/milestone-coding-fundamentals.md.
+
+`uis/backoffice/logistics.html` es segunda entrada Vite: HTML/Tailwind y
+TypeScript nativo, con lógica importada del paquete mediante rutas relativas
+(no hay workspace raíz). Desarrollo 5174 y preview 4174, ruta /logistics.html.
+Marca, favicon y Archivo local importados con ?url; FontFace registra la
+fuente del laboratorio. No duplica recursos ni añade dependencias de UI.
+Reportes en listas agrupadas con botón aria-expanded/aria-controls y contenido
+hidden en el flujo normal, sin contenedor de scroll interno. Generar usa la
+selección actual y cambiar filtros invalida el resultado anterior. Mensajes
+role=status y confirmación temporal de botones; editar datos de cálculo o JSON indica
+que hay resultados pendientes de actualizar.
+Identidad y controles documentados en uis/STYLE_GUIDE.md; capturas seleccionadas
+enlazadas desde la matriz del hito.
+Los pedidos Order y la lógica original del dashboard se conservan.
+La selección reproduce score >=50 y menor coste; no usarla como recomendación
+operativa por la discrepancia de cobertura documentada en el contrato.
 
 Las aplicaciones tienen layouts separados y comparten identidad.
 Website reutiliza utilidades Tailwind con @apply para estructura, acciones,

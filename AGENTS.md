@@ -26,6 +26,11 @@ comportamiento actuales aprobados de la web.
 Explicar con claridad qué vamos haciendo y el propósito de cada cambio.
 No crear copias de respaldo.
 
+Mantener comunicaciones y entregas profesionales y concisas: explicar el
+resultado, los cambios relevantes y la validación sin repetir información.
+En commits y PR, enlazar la matriz y las evidencias en lugar de copiarlas
+o narrar el historial de trabajo. No presentar pendientes como completados.
+
 Realizar únicamente el trabajo correspondiente a la tarea actual.
 
 Trabajar y revisar en local. No hacer commit, push ni sincronizar cambios

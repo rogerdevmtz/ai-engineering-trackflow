@@ -37,6 +37,10 @@ y derive los casos necesarios a una persona.
 Estas capacidades son objetivos futuros y todavía no están
 implementadas.
 
+El hito de fundamentos incorpora lógica didáctica de inventario, tarifas y
+selección de transportistas en TypeScript, con datos ficticios y laboratorio
+local. No constituye un recomendador operativo ni integración real.
+
 ## Alcance del primer hito
 
 - Preparar el entorno de desarrollo en GitHub Codespaces.
@@ -62,6 +66,8 @@ Si se muestran datos de demostración, deben identificarse como tales.
 
 Explicar con claridad qué vamos haciendo y el propósito de cada cambio.
 No crear copias de respaldo.
+Las entregas Git deben ser profesionales y concisas: describir alcance,
+desafíos resueltos y validación sin redundancias ni relatos extensos.
 
 Los cambios del segundo hito se preparan y revisan en local. No hacer commit,
 push ni sincronizar con Codespaces hasta aprobación y autorización del estudiante.

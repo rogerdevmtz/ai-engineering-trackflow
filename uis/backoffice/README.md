@@ -4,6 +4,12 @@ Entrada básica del primer hito en `/`, con layout operativo propio:
 sidebar, resumen, pedidos de ejemplo y almacenes. React, TypeScript,
 Vite, Tailwind CSS y pnpm, con las mismas versiones del website.
 
+El [laboratorio de operaciones](./logistics.html) del hito de fundamentos se
+abre en `/logistics.html`: inventario, búsquedas, reportes, comparación de
+transportistas y validación de JSON con datos ficticios. Consume el
+[paquete logístico](../../packages/logistics/README.md) y se construye junto
+al dashboard. Usa Archivo local y tokens compartidos; no conecta sistemas reales.
+
 ## Ejecutar
 
 Desde esta carpeta:

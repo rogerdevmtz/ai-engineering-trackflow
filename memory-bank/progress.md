@@ -1254,3 +1254,238 @@ pendiente de formato de evidencia; se mantienen las diferencias de contenido,
 diseño y accesibilidad para revisión docente. Sin cambios de código ni de
 CONTEXT.md; no procede repetir lint/build ni atribuir nuevas pruebas a esta tarea.
 Verificación de documentación, rutas y diff antes de subir; sin merge.
+
+## 17/10/2026 — Preview en cPanel autorizada
+
+Publicada por petición expresa del estudiante la versión local compilada en
+https://rogermtz.com/trackflow/, con application.html y backoffice/.
+Carpeta nueva public_html/trackflow; sin modificar la web raíz existente.
+Solo archivos estáticos de build, recursos y licencias; rutas del paquete
+adaptadas a /trackflow/ y /trackflow/backoffice/, sin editar fuentes.
+Paquete temporal fuera del repositorio; ZIP remoto enviado a la papelera
+tras extraerlo. No se publicaron fuentes, secretos ni node_modules.
+Preview noindex, con X-Robots-Tag heredado por ambas apps y listado de carpetas
+desactivado. Sin backend: el formulario sigue simulado y el panel usa ejemplos.
+
+Verificación de esta tarea: lint/build de ambas apps y 14 pruebas del website
+correctos. Navegador público: landing a 1920 y 390 px, formulario a 390 px,
+backoffice a 1920 y 390 px, sin desbordamiento horizontal observado.
+Imágenes cargadas, CTA y regreso al inicio con rutas del paquete; envío vacío
+bloqueado y filtro Zaragoza devuelve tres pedidos. Sin errores de consola
+observados en backoffice. No se repitió el envío completo ni Lighthouse.
+No se verificó un móvil físico. Sin commit, push, merge ni sincronización.
+Próximo paso: revisión del estudiante desde su móvil usando las URLs públicas;
+para actualizar la preview hay que regenerar el paquete y adaptar las rutas.
+
+## 09/11/2026 — Análisis del hito de fundamentos de programación
+
+Leído el enunciado completo en el campus, incluidos trabajo, evaluación y
+entrega, y el [BRIEFING específico de TrackFlow](https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/contexts/02-coding-fundamentals/trackflow-BRIEFING.es.md).
+El campus lo llama Hito 2; docs/milestone-2.md corresponde a la web pública
+anterior. Distinguirlos por nombre para no sobrescribir esa documentación.
+
+El contrato pide Product, Shipment, Carrier e InventoryMovement, tipos
+auxiliares y 19 funciones: cinco de colecciones, tres de búsqueda, tres de
+costos/selección, cinco de reportes y tres de validación. Nombres, campos,
+valores de unión y firmas deben coincidir con el BRIEFING. Las búsquedas
+lineales devuelven objeto/null; la binaria por peso ascendente, índice/-1.
+Costo: base + peso unitario por cantidad y tarifa + distancia por tarifa;
+recargos Standard 0%, Express 30%, Same-day 60%. Scoring: país 20, peso 20,
+prioridad 15, fragilidad 15 y onTimeRate * 0.3. Selección: score >= 50 y menor
+costo, no mayor score. Interfaz de prueba opcional; comando TypeScript y
+funciones puras sin mutaciones obligatorios. Entrega: feature/domain-models,
+PR hacia main con funcionalidades/desafíos, capturas si hay UI y URL en campus.
+
+Revisión local: backoffice usa seis Order ficticios con campos distintos,
+filtros en App.tsx y recuentos en OperationsOverview.tsx. No están implementados
+los modelos ni las 19 funciones del contrato. packages/shared conserva tipos
+de plantilla; validation.js del website valida solicitudes comerciales, no
+inventario/envíos/transportistas. Propuesta pendiente de implementación:
+lógica independiente reutilizable en packages, estructura src/types y
+src/utils, demostración ejecutable y pruebas del contrato; integración visual
+opcional posterior. No es una decisión aprobada de arquitectura.
+
+GitHub API y git ls-remote: PR #1 fusionada, PR #2 abierta/no fusionada,
+main en f0d6d9c y rama codex/hito-2-web-publica en c6046e6, coincidente con HEAD
+local. No existe feature/domain-models remota. Único cambio local previo:
+entrada de preview cPanel en este archivo, preservada. Sin aprobación docente
+comprobada ni entrega en campus verificada. No se hizo merge/fetch/commit/push.
+
+Puntos a aclarar: el scoring permite superar 50 sin país/peso/prioridad
+compatibles; con los ejemplos, UPS obtiene 76.4 y costo 30.89 USD para Madrid,
+por lo que la selección literal lo elige aunque operatesIn solo incluye US.
+No introducir exclusiones adicionales sin aclaración. El enunciado general
+menciona múltiples criterios y máximos/mínimos, sin funciones específicas en
+el BRIEFING; incluir su cobertura al preparar la matriz. Documentar decisiones
+para promedios vacíos, empates y topN no positivo. Los valores técnicos son
+Los Angeles/Spain y USD; la UI actual puede seguir localizada. CONTEXT.md se
+conserva como briefing general protegido, sin sustituirlo por el del módulo.
+
+Comprobaciones actuales: tsc -p tsconfig.app.json --noEmit y pnpm lint en ambas
+apps correctos; pnpm test del website 14/14. No son pruebas del nuevo hito.
+No se arrancaron apps, compilaron builds ni repitieron pruebas de navegador o
+Lighthouse. Solo análisis y actualización de memoria; sin código nuevo.
+Próximo paso: revisar el diagnóstico con el estudiante, aclarar selección y
+preparar base desde main actualizado cuando se autorice integrar la PR #2.
+
+## 09/11/2026 — PR #2 integrada y rama de modelos preparada
+
+El estudiante autorizó integrar la PR #2, actualizar main local y crear
+feature/domain-models conservando los cambios de memoria. Comprobadas PR
+mergeable/clean y ascendencia de main; integrado por avance directo sin
+reescribir historial. GitHub API confirmó PR #2 closed, merged=true y commit
+c6046e602aa2f0041a19e977a6b93b2a7bfcea33. Main local y remoto coinciden.
+
+Creada y seleccionada feature/domain-models local desde ese commit, sin subir
+la nueva rama. Las dos entradas locales previas de memoria se conservaron:
+SHA256 de progress.md idéntico antes/después del cambio de ramas, antes de
+añadir este registro. Sin stash, respaldos ni nuevos commits. Único archivo
+modificado en el árbol de trabajo: memory-bank/progress.md.
+
+Aplicada skill update-project-memory. Diff --check correcto. No se modificó
+código ni se repitieron tipos/lint/pruebas/build/navegador; las comprobaciones
+de tipos/lint y 14 pruebas del análisis anterior conservan su alcance.
+Próximo paso: concretar la implementación del hito de fundamentos en esta
+rama, manteniendo pendientes las dudas de scoring registradas arriba.
+
+## 09/11/2026 — Matriz de cumplimiento de fundamentos
+
+Releídos enunciado y BRIEFING completos desde el repositorio oficial.
+Creado [diagnóstico del hito](../docs/milestone-coding-fundamentals.md):
+19 funciones, modelos, pruebas previstas, 18 criterios de evaluación y
+exigencias generales adicionales (filtros combinados, orden mult campo y
+extremos). De 37 checks, 34 son obligatorios y 3 de interfaz opcionales.
+Todo requisito de código permanece pendiente; no se confunde análisis con
+implementación. Compatibilidad de navegador necesaria aunque la UI sea opcional.
+
+Propuestas documentadas para casos no definidos y discrepancias de scoring;
+no hay aprobación docente ni cambios de contrato. PR #2 integrada y rama
+feature/domain-models ya preparadas en la tarea anterior. Se preservan todas
+las entradas locales previas. Preferencia expresa de entregas Git concisas
+registrada en projectbrief y en el diagnóstico, sin añadir plantilla redundante.
+
+Aplicada skill update-project-memory. Revisados documentación, enlaces locales
+y diff --check; sin código, dependencias, tests/build nuevos, commit o push.
+Próximo paso: implementar el contrato y completar la matriz con evidencias,
+documentando los comportamientos de borde antes de cerrar la entrega.
+
+## 09/11/2026 — Fundamentos implementado y revisado en local
+
+Implementado packages/logistics: cuatro entidades principales, dos interfaces
+auxiliares, uniones exactas, 19 funciones oficiales, orden multicampo y extremos.
+Comparación automática de las seis interfaces con el BRIEFING oficial sin
+diferencias. Ejemplos oficiales y registros adicionales identificados como demo.
+Biblioteca consumida por Node y por /logistics.html del backoffice: inventario,
+búsquedas, reportes, costes/scoring y validaciones JSON. Dashboard y web pública
+conservan sus funciones. Sin dependencias nuevas de ejecución ni recursos duplicados.
+
+Verificado: instalación frozen-lockfile y typecheck estricto del paquete,
+32/32 pruebas, demo y oxlint; lint/build backoffice con dos entradas;
+lint/build website y sus 14/14 pruebas. Sin Lighthouse nuevo. Un intento de
+oxlint con rutas relativas que contenían .. falló; repetido desde raíz con
+rutas válidas y correcto. Un build inicial avisó de fuente sin resolver,
+corregido; builds finales sin ese aviso.
+
+Chrome por extensión: laboratorio en dev 5174 y preview 4174. Revisadas
+capturas escritorio 1440, móvil 390 y transportistas 768, sin overflow; ancho
+320 comprobado por medidas, captura inicial ilegible por escala del navegador.
+Captura CDP permitió revisar las otras vistas a escala correcta. Comprobados
+filtros combinados, vacío/reset, orden, búsquedas encontradas/ausentes, scoring,
+validadores de las tres entidades, JSON roto y cantidades 0/0.001. Enter en
+validación/cálculo; foco visible. Corregidos listado tras reset, pestañas con
+scroll móvil y recursos en dev. Marca/fuente verificadas en ambos servidores.
+Sin errores/avisos de aplicación observados. No certifica accesibilidad completa.
+
+Regresión de panel en escritorio/móvil, Zaragoza 3, SEUR 1 y reset 6; landing
+carga, CTA abre formulario y avance vacío móvil bloqueado con errores. No se
+repitió envío completo, lector de pantalla, móvil físico ni otros motores.
+Matriz actualizada con evidencias y límites; selección literal del scoring
+conservada y explicada. Pendiente aprobación del estudiante y selección de
+capturas para la PR, después commit/push/PR/entrega expresamente autorizados.
+Todo sigue local en feature/domain-models; memoria previa preservada.
+
+Aplicadas astra-frontend-design, frontend-testing-debugging y
+update-project-memory. Archivos nuevos usados por imports, comandos o enlaces;
+node_modules/builds ignorados. Sin cambios en archivos protegidos.
+Revisión final: enlaces locales y archivos nuevos sin espacios finales;
+git diff --check correcto. Preview del laboratorio disponible en 4174 y
+desarrollo en 5174 para revisión del estudiante.
+
+## 09/11/2026 — Reauditoría completa, opcionales y calidad
+
+Releídos enunciado y BRIEFING oficiales; contrastados los 37 checks: 10 de
+lógica, 6 de calidad, 18 de evaluación y 3 de interfaz opcionales. Matriz
+actualizada con cobertura explícita y entrega Git/campus separada. Comparación
+automática: seis interfaces y siete uniones exactas. No se declara entrega ni
+aprobación docente; siguen pendientes revisión del estudiante y capturas de PR.
+
+Detectado bypass de validación con arrays dispersos: nueva prueba falló y se
+corrigieron opciones y guardas de colecciones. Ahora 33/33 pruebas correctas.
+Mejorados nombres de datos en validadores y formato de los archivos nuevos;
+Prettier temporal, sin dependencia añadida. Añadido Generar reporte, con
+función propia que usa la selección actual y limpia resultados al cambiarla.
+Revisado con Enter, datos completos/vacíos y reset, a 1440/390 en Chrome:
+sin overflow ni errores/avisos observados. Viewport restablecido.
+
+Repetidos typecheck, demo, pruebas y oxlint del paquete; lint/build de ambas
+apps y 14/14 pruebas del website, correctos. Documentación/enlaces/diff revisados.
+Aplicada update-project-memory. Sin commit/push ni cambios en archivos protegidos.
+Próximo paso: revisión del estudiante, elegir capturas y preparar PR concisa
+cuando autorice la subida; la observación del scoring literal sigue documentada.
+
+## 09/11/2026 — Estilo final y evidencias de entrega
+
+Resumen operativo con icono/chevron de TrackFlow y reportes en filas agrupadas;
+acciones con flechas centradas, contraste y selectores coherentes con la web.
+Cambios limitados al laboratorio; identidad actualizada en la guía común.
+Verificados teclado, filtros, vacío/reset, alineaciones y anchos 320–1920 en
+Chrome, sin overflow. Regresión del panel y formulario público comprobada
+con el alcance indicado en la matriz; no se repitió el envío completo.
+
+Typecheck, 33/33 pruebas, demo y lint del paquete; lint/build de ambas apps y
+14/14 pruebas del website correctos tras los ajustes. Cuatro capturas HD
+seleccionadas guardadas y revisadas en docs/evidence; resoluciones y enlaces
+en la [matriz](../docs/milestone-coding-fundamentals.md), junto al borrador breve
+de PR. Capturas móviles emuladas a DPR 3, sin editar las imágenes.
+
+Regla expresa de comunicación y entregas concisas incorporada a AGENTS.md.
+Enlaces locales, formato de la interfaz y diff --check correctos; los cuatro
+PNG tienen las resoluciones documentadas. Archivos nuevos con uso comprobado.
+Aplicadas astra-frontend-design, emil-design-eng, frontend-testing-debugging y
+update-project-memory. Sin cambios en archivos protegidos ni commit/push.
+Próximo paso: revisión del estudiante y, cuando autorice, commit, subida y PR
+desde feature/domain-models; después entrega de su URL en el campus.
+
+## 09/11/2026 — Corrección de desplazamiento y feedback
+
+Tras el bloqueo comunicado por el estudiante, sustituido el details del resumen
+por botón accesible y contenido en flujo normal. Documento con scroll vertical
+explícito y barra estable; sin altura limitada ni scroll interno del reporte.
+Confirmaciones inline con role=status y check temporal de botón; cambios en
+cálculos y JSON indican cuándo volver a ejecutar. No añade dependencias.
+
+Verificado en Chrome preview 4174: abrir con Espacio, generar, desplazar con
+rueda hasta la última búsqueda y ejecutarla a 1440×900 y 390×844, sin overflow.
+Probados filtros/reset, recálculo, validación inválida/válida y confirmación
+de acciones repetidas; sin errores/avisos de aplicación observados. Lint y
+build del backoffice correctos. Pruebas del paquete y website no repetidas:
+sus fuentes no cambian y conservan los resultados de la revisión anterior.
+
+Actualizadas cuatro capturas HD y añadida una quinta que muestra el acceso al
+final con el resumen abierto. Guía, contexto técnico y matriz/borrador de PR
+actualizados, sin duplicar el detalle aquí. Aplicada update-project-memory.
+Todo local en feature/domain-models; sin commit/push ni archivos protegidos
+modificados. Entrega preparada; pendiente autorización de subida y PR, seguida
+de la entrega de su URL en el campus.
+
+## 09/11/2026 — Publicación del hito autorizada
+
+El estudiante autoriza commit, subida de feature/domain-models y PR a main del
+fork, con capturas y descripción concisa. Repetidos tipos, 33/33 pruebas, demo
+y lint del paquete; lint/build de ambas apps y 14/14 pruebas del website:
+correctos. La revisión visual previa corresponde al mismo código, sin cambios
+de aplicación en esta preparación. Main remoto comprobado en c6046e6; no hay
+otra PR abierta desde esta rama. Memoria local previa preservada.
+
+Aplicada update-project-memory. Próximo paso: publicar y verificar la PR;
+la entrega de su URL en el campus y la fusión posterior siguen pendientes.

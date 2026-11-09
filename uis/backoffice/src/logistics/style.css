@@ -1,0 +1,146 @@
+@import 'tailwindcss';
+@import '../../../../shared/brand/tokens.css';
+:root {
+  font-family: var(--font-body);
+  background: var(--color-background);
+  color: var(--color-text);
+  color-scheme: dark;
+}
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+body {
+  margin: 0;
+  min-height: 100svh;
+}
+[hidden] {
+  display: none !important;
+}
+:focus-visible {
+  outline: 3px solid #ff9a73;
+  outline-offset: 4px;
+}
+@layer components {
+  label {
+    @apply flex min-w-0 flex-col gap-2 text-sm text-neutral-300;
+  }
+  input:not([type='checkbox']),
+  select,
+  textarea {
+    @apply w-full min-w-0 rounded-2xl border border-[#626262] bg-[#101010] p-3 text-base text-white;
+  }
+  input[type='checkbox'] {
+    @apply size-5 accent-[#FD430B];
+  }
+  button {
+    @apply min-h-12 cursor-pointer rounded-2xl px-4 py-3 text-sm font-medium;
+  }
+  .primary {
+    @apply inline-flex min-h-[50px] items-center justify-between gap-4 rounded-[18px] border border-transparent bg-[#FD430B] py-1.5 pr-1.5 pl-4 text-left text-black hover:bg-white;
+  }
+  .secondary {
+    @apply inline-flex min-h-[50px] items-center justify-between gap-4 rounded-[18px] border border-white/30 bg-[#101010] py-1.5 pr-1.5 pl-4 text-left text-white hover:bg-[#202020];
+  }
+  .tool-tab {
+    @apply min-w-0 flex-1 rounded-b-none border-b-2 border-transparent px-2 text-xs text-neutral-400 sm:flex-none sm:px-4 sm:text-sm;
+  }
+  .tool-tab[aria-pressed='true'] {
+    @apply border-[#FD430B] text-white;
+  }
+  .panel {
+    @apply min-w-0 rounded-[22px] border border-white/10 bg-[#080808] p-5;
+  }
+  .result {
+    @apply mt-4 break-words text-sm leading-6 text-neutral-300;
+  }
+  .result:empty {
+    display: none;
+  }
+  .result:not(:empty) {
+    @apply rounded-xl border-l-2 border-[#FD430B] bg-[#101010] px-3 py-2;
+  }
+  button[data-complete='true'] .action-symbol {
+    @apply bg-white/20;
+  }
+  .action-symbol {
+    @apply flex size-8 shrink-0 items-center justify-center rounded-full border border-white/25;
+  }
+  .primary .action-symbol {
+    @apply border-transparent bg-black/10 text-black;
+  }
+  .secondary .action-symbol {
+    @apply border-transparent bg-white/10;
+  }
+  .action-symbol svg,
+  .disclosure-symbol svg {
+    @apply size-4 shrink-0 fill-none stroke-current;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .back-link {
+    @apply inline-flex min-h-11 shrink-0 items-center gap-2 text-xs text-neutral-300 hover:text-white sm:text-sm;
+  }
+  .action-symbol svg {
+    stroke-width: 1.35;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+  }
+  .report-disclosure {
+    @apply mb-7 rounded-[22px] border border-white/15 bg-[#080808];
+  }
+  .report-trigger {
+    @apply flex min-h-20 w-full cursor-pointer items-center justify-between gap-4 rounded-[22px] p-4 text-left hover:bg-[#101010] sm:p-5;
+  }
+  .report-heading {
+    @apply flex min-w-0 items-center gap-3;
+  }
+  .report-heading strong {
+    @apply block text-sm font-semibold text-white;
+  }
+  .report-heading span span {
+    @apply mt-1 block text-xs leading-5 text-neutral-400;
+  }
+  .report-icon {
+    @apply size-5 shrink-0 fill-none stroke-[#FD430B];
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .disclosure-symbol {
+    @apply flex size-8 shrink-0 items-center justify-center rounded-full border border-white/20 text-neutral-300;
+  }
+  .report-trigger[aria-expanded='true'] .disclosure-symbol svg {
+    transform: rotate(180deg);
+  }
+  .report-content {
+    @apply border-t border-white/10 p-4 sm:p-5;
+  }
+  .report-results {
+    @apply mt-5 grid gap-6 text-sm text-neutral-400 sm:grid-cols-2;
+  }
+  .report-results h3 {
+    @apply mb-2 text-sm font-medium text-white;
+  }
+  .report-results dl div {
+    @apply flex min-h-10 items-center justify-between gap-4 border-b border-white/10 py-2;
+  }
+  .report-results dd {
+    @apply font-medium text-white tabular-nums;
+  }
+}
+select {
+  appearance: none;
+  padding-right: 3rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23dedede' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+  background-position: right 16px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+}
+@media (forced-colors: active) {
+  select {
+    appearance: auto;
+    background-image: none;
+  }
+}
