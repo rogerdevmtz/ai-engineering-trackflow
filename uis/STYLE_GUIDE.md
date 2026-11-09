@@ -268,6 +268,27 @@ reducido las anula. Conservar foco visible y colores forzados.
 
 ## Recursos y verificación
 
+Laboratorio de fundamentos en backoffice/logistics.html: mantiene tokens,
+Archivo local, marca SVG y superficies operativas oscuras. Tres herramientas
+con botones nativos (Inventario, Transportistas y Validaciones), foco visible
+y estado aria-pressed/aria-controls. En móvil caben en una fila sin scrollbar;
+formularios y resultados se apilan, con texto de entrada de 16px. Acciones de
+50px con símbolo circular de 32px centrado y flechas de la web; primarias
+naranja con texto negro. Selectores nativos con chevron alineado a la derecha
+y alternativa de sistema en colores forzados. El resumen operativo usa un
+botón con aria-expanded/aria-controls, icono, título, descripción y chevron;
+su contenido entra en el flujo normal con hidden, sin altura ni scroll internos.
+El documento conserva desplazamiento vertical y espacio estable para la barra.
+Sus resultados son filas de categorías y estados con cifras alineadas a la
+derecha; dos columnas en escritorio, una en móvil. Datos ficticios identificados.
+Las operaciones muestran mensajes junto a sus resultados mediante role=status;
+los botones confirman la ejecución con un check durante 1,6s y conservan su
+etiqueta. Editar cálculos o JSON avisa de que deben ejecutarse de nuevo.
+Recursos importados con ?url y fuente registrada con FontFace para funcionar
+en desarrollo y build. Sin animaciones nuevas, imágenes duplicadas ni
+dependencias de UI. Composición revisada en local; no modifica el dashboard
+original.
+
 Solo recursos servidos y variantes vectoriales aprobadas en `website/public`;
 backoffice los importa con `?url`, sin duplicarlos ni necesitar el servidor
 website. Tokens en `shared/brand`; evidencias de entrega en `docs/evidence`.

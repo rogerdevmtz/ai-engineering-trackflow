@@ -57,6 +57,7 @@ and a maintenance skill under `.agents/`.
 
 - [Website](uis/website/README.md): corporate site at `/`, port 5173.
 - [Backoffice](uis/backoffice/README.md): demo operations at `/`, port 5174.
+- [Logistics](packages/logistics/README.md): typed domain utilities and a test lab at `/logistics.html` in the backoffice.
 - [Visual identity](uis/STYLE_GUIDE.md): shared guide and brand tokens.
 - [Milestone 1](docs/milestone-1.md): requirements, evidence and pending Git delivery.
 

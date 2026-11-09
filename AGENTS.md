@@ -26,6 +26,13 @@ comportamiento actuales aprobados de la web.
 Explicar con claridad qué vamos haciendo y el propósito de cada cambio.
 No crear copias de respaldo.
 
+Mantener comunicaciones y entregas profesionales y concisas: explicar el
+resultado, los cambios relevantes y la validación sin repetir información.
+No copiar ni resumir en el repositorio enunciados, rúbricas o instrucciones
+de entrega que ya están en el campus de 4Geeks. Documentar la ejecución,
+el uso y las decisiones técnicas necesarias; presentar las evidencias en la PR.
+No narrar el historial de trabajo ni presentar pendientes como completados.
+
 Realizar únicamente el trabajo correspondiente a la tarea actual.
 
 Trabajar y revisar en local. No hacer commit, push ni sincronizar cambios

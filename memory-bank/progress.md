@@ -1254,3 +1254,72 @@ pendiente de formato de evidencia; se mantienen las diferencias de contenido,
 diseño y accesibilidad para revisión docente. Sin cambios de código ni de
 CONTEXT.md; no procede repetir lint/build ni atribuir nuevas pruebas a esta tarea.
 Verificación de documentación, rutas y diff antes de subir; sin merge.
+
+## 17/10/2026 — Preview en cPanel autorizada
+
+Publicada por petición expresa del estudiante la versión local compilada en
+https://rogermtz.com/trackflow/, con application.html y backoffice/.
+Carpeta nueva public_html/trackflow; sin modificar la web raíz existente.
+Solo archivos estáticos de build, recursos y licencias; rutas del paquete
+adaptadas a /trackflow/ y /trackflow/backoffice/, sin editar fuentes.
+Paquete temporal fuera del repositorio; ZIP remoto enviado a la papelera
+tras extraerlo. No se publicaron fuentes, secretos ni node_modules.
+Preview noindex, con X-Robots-Tag heredado por ambas apps y listado de carpetas
+desactivado. Sin backend: el formulario sigue simulado y el panel usa ejemplos.
+
+Verificación de esta tarea: lint/build de ambas apps y 14 pruebas del website
+correctos. Navegador público: landing a 1920 y 390 px, formulario a 390 px,
+backoffice a 1920 y 390 px, sin desbordamiento horizontal observado.
+Imágenes cargadas, CTA y regreso al inicio con rutas del paquete; envío vacío
+bloqueado y filtro Zaragoza devuelve tres pedidos. Sin errores de consola
+observados en backoffice. No se repitió el envío completo ni Lighthouse.
+No se verificó un móvil físico. Sin commit, push, merge ni sincronización.
+Próximo paso: revisión del estudiante desde su móvil usando las URLs públicas;
+para actualizar la preview hay que regenerar el paquete y adaptar las rutas.
+
+## 09/11/2026 — PR #2 integrada y rama de modelos preparada
+
+Por autorización del estudiante se integró la PR #2 en main mediante avance
+directo, en c6046e6, y se creó feature/domain-models. Se preservó la memoria
+local al cambiar de rama; sin stash, respaldos ni reescritura de historial.
+
+## 09/11/2026 — Lógica logística y laboratorio verificados
+
+Implementado packages/logistics con modelos, utilidades puras, demo y pruebas;
+el laboratorio /logistics.html del backoffice consume la misma lógica.
+Uso y decisiones en el README del paquete; identidad en uis/STYLE_GUIDE.md.
+Sin dependencias nuevas de ejecución, recursos duplicados ni cambios en el
+briefing protegido. La selección literal de transportistas y su limitación
+de cobertura permanecen explicadas en el README y la interfaz.
+
+Verificación previa al commit: typecheck estricto, 33/33 pruebas, demo y lint
+del paquete; lint/build de ambas apps y 14/14 pruebas del website correctos.
+Corregido bypass con arrays dispersos y cubierto por regresión. Chrome:
+filtros, búsquedas, reportes, costes y validaciones; resumen con teclado y
+rueda hasta la última búsqueda a 1440×900 y 390×844, sin overflow ni errores
+observados. Confirmaciones de acciones y aviso de datos pendientes de actualizar.
+Panel original y apertura/validación vacía del formulario público comprobados;
+no se repitió el envío completo, Lighthouse, móvil físico ni otros motores.
+
+## 09/11/2026 — PR #3 y documentación de entrega
+
+Commit de implementación 488ff51 y registro b0dca4e publicados en
+feature/domain-models tras autorización del estudiante. [PR #3](https://github.com/rogerdevmtz/ai-engineering-trackflow/pull/3)
+abierta hacia main del fork. Cinco capturas HD en docs/evidence: originales
+de escritorio y móvil emulado a DPR 3, verificadas también renderizadas en GitHub.
+Sin merge ni nueva publicación en cPanel/Codespaces.
+
+Por indicación del estudiante se retira la matriz que repetía requisitos y
+pasos del campus; eliminados sus enlaces y consolidado este registro del hito.
+AGENTS.md recoge que los enunciados y rúbricas se consultan en 4Geeks.
+El repositorio conserva documentación de uso, decisiones técnicas y evidencias.
+Enlaces y diff de la limpieza documental verificados. No se repiten pruebas
+de aplicación porque su código no cambia. Aplicada update-project-memory.
+
+Revisión final posterior: modelos y firmas contrastados con la fuente, sin
+diferencias. Corregido texto de validación de países; tipos, 33/33 pruebas,
+lint del paquete/backoffice y build del backoffice correctos. Las cinco capturas
+de la PR aparecen ahora visibles, sin desplegables; originales cargados y
+pareja móvil alineada comprobados en GitHub. Descripción breve con alcance,
+desafíos resueltos, comprobaciones locales y enlace al README de uso.
+Próximo paso: entregar la URL de la PR en el campus y atender la revisión.

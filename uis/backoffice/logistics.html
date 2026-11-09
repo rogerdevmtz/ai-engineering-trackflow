@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#000000" />
+    <title>TrackFlow | Laboratorio de operaciones</title>
+    <link id="lab-icon" rel="icon" />
+  </head>
+  <body>
+    <a class="sr-only focus:not-sr-only" href="#main">Saltar al contenido</a>
+    <div class="mx-auto max-w-6xl px-5 pb-16 sm:px-8">
+      <header class="flex min-h-24 items-center justify-between gap-6 border-b border-white/15">
+        <a href="./" aria-label="Volver al backoffice"
+          ><img id="lab-logo" class="w-28 sm:w-36" alt="TrackFlow"
+        /></a>
+        <a class="back-link" href="./">
+          <span class="action-symbol" aria-hidden="true"
+            ><svg viewBox="0 0 16 16"><path d="M13 8H4m4.5-4.5L3 8l4.5 4.5" /></svg
+          ></span>
+          <span>Volver al panel</span>
+        </a>
+      </header>
+      <main id="main" tabindex="-1">
+        <div class="py-8 sm:py-12">
+          <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">
+            Laboratorio de operaciones<span class="text-[#FD430B]">.</span>
+          </h1>
+          <p class="mt-3 max-w-2xl text-sm leading-6 text-neutral-400">
+            Prueba el inventario, compara transportistas y comprueba los datos antes de procesarlos.
+          </p>
+          <p class="mt-4 border-l-2 border-[#FD430B] pl-3 text-sm text-neutral-300">
+            Datos de demostración. Sin conexión a almacenes ni transportistas reales.
+          </p>
+        </div>
+        <nav class="mb-8 flex gap-1 border-b border-white/15" aria-label="Herramientas">
+          <button
+            class="tool-tab"
+            data-panel="inventory"
+            aria-controls="inventory"
+            aria-pressed="true"
+          >
+            Inventario
+          </button>
+          <button
+            class="tool-tab"
+            data-panel="carriers"
+            aria-controls="carriers"
+            aria-pressed="false"
+          >
+            Transportistas
+          </button>
+          <button
+            class="tool-tab"
+            data-panel="validation"
+            aria-controls="validation"
+            aria-pressed="false"
+          >
+            Validaciones
+          </button>
+        </nav>
+        <section id="inventory" aria-labelledby="inventory-title">
+          <div class="flex flex-wrap items-baseline justify-between gap-4">
+            <h2 id="inventory-title" class="text-xl font-semibold">Inventario por almacén</h2>
+            <p id="product-count" class="text-sm text-neutral-400" role="status"></p>
+          </div>
+          <form
+            id="inventory-filters"
+            class="mt-5 grid gap-4 rounded-[22px] border border-white/10 bg-[#080808] p-5 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            <label
+              >Almacén<select id="warehouse">
+                <option value="">Todos</option>
+                <option value="Los Angeles">Los Ángeles</option>
+                <option>Zaragoza</option>
+              </select></label
+            >
+            <label
+              >Categoría<select id="category">
+                <option value="">Todas</option>
+                <option value="Fashion">Moda</option>
+                <option value="Electronics">Electrónica</option>
+                <option value="Cosmetics">Cosmética</option>
+                <option value="Home">Hogar</option>
+                <option value="Other">Otros</option>
+              </select></label
+            >
+            <label
+              >Ordenar<select id="sort">
+                <option value="stock-asc">Stock: menor primero</option>
+                <option value="stock-desc">Stock: mayor primero</option>
+                <option value="warehouse">Almacén y stock</option>
+              </select></label
+            >
+            <div class="flex flex-col justify-end gap-3">
+              <label class="flex flex-row items-center gap-2"
+                ><input id="low-stock" type="checkbox" /> Solo stock bajo</label
+              ><button class="secondary" type="reset">Restablecer</button>
+            </div>
+          </form>
+          <p id="inventory-feedback" class="result" role="status"></p>
+          <div id="products" class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"></div>
+          <dl class="my-6 grid grid-cols-2 gap-5 border-y border-white/15 py-6 sm:grid-cols-4">
+            <div>
+              <dt class="text-xs text-neutral-400">Valor de la selección</dt>
+              <dd id="inventory-value" class="mt-2 text-xl font-semibold tabular-nums"></dd>
+            </div>
+            <div>
+              <dt class="text-xs text-neutral-400">Stock mínimo / máximo</dt>
+              <dd id="stock-extremes" class="mt-2 text-xl font-semibold tabular-nums"></dd>
+            </div>
+            <div>
+              <dt class="text-xs text-neutral-400">Distancia media de envíos</dt>
+              <dd id="average-distance" class="mt-2 text-xl font-semibold tabular-nums"></dd>
+            </div>
+            <div>
+              <dt class="text-xs text-neutral-400">Transportista más usado</dt>
+              <dd id="top-carrier" class="mt-2 text-xl font-semibold"></dd>
+            </div>
+          </dl>
+          <section class="report-disclosure" aria-label="Resumen operativo">
+            <button
+              class="report-trigger"
+              id="report-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="report-content"
+            >
+              <span class="report-heading">
+                <svg class="report-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 3h10v4H7z M7 5H4v16h16V5h-3 M8 12h8 M8 16h5" />
+                </svg>
+                <span
+                  ><strong>Resumen operativo</strong
+                  ><span>Categorías y estados de envío</span></span
+                >
+              </span>
+              <span class="disclosure-symbol" aria-hidden="true"
+                ><svg viewBox="0 0 16 16"><path d="m4 6 4 4 4-4" /></svg
+              ></span>
+            </button>
+            <div id="report-content" class="report-content" hidden>
+              <button id="generate-report" class="secondary" type="button">Generar reporte</button>
+              <p id="report-feedback" class="result" role="status"></p>
+              <div id="reports" class="report-results"></div>
+            </div>
+          </section>
+          <div class="grid gap-5 lg:grid-cols-3">
+            <form id="sku-form" class="panel">
+              <h3 class="font-semibold">Buscar producto</h3>
+              <label class="mt-4">SKU<input id="sku-query" value="laptop-dell-15" /></label
+              ><button class="primary mt-3" type="submit">Buscar SKU</button>
+              <p id="sku-result" class="result" role="status"></p>
+            </form>
+            <form id="weight-form" class="panel">
+              <h3 class="font-semibold">Buscar por peso</h3>
+              <label class="mt-4"
+                >Peso unitario (kg)<input
+                  id="weight-query"
+                  type="number"
+                  min="0"
+                  step="any"
+                  value="2.3"
+                  required /></label
+              ><button class="primary mt-3" type="submit">Buscar peso</button>
+              <p id="weight-result" class="result" role="status"></p>
+            </form>
+            <form id="shipment-form" class="panel">
+              <h3 class="font-semibold">Consultar envío</h3>
+              <label class="mt-4"
+                >Identificador<input id="shipment-query" value="SH-2024-8821" /></label
+              ><button class="primary mt-3" type="submit">Buscar envío</button>
+              <p id="shipment-result" class="result" role="status"></p>
+            </form>
+          </div>
+        </section>
+        <section id="carriers" hidden aria-labelledby="carriers-title">
+          <h2 id="carriers-title" class="text-xl font-semibold">Comparar transportistas</h2>
+          <p class="mt-2 text-sm text-neutral-400">
+            Destino de ejemplo: Madrid, España. Importes expresados en USD.
+          </p>
+          <form
+            id="carrier-form"
+            class="mt-5 grid gap-4 rounded-[22px] border border-white/10 bg-[#080808] p-5 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            <label>Producto<select id="shipment-product"></select></label>
+            <label
+              >Unidades<input id="quantity" type="number" min="0" step="any" value="1" required
+            /></label>
+            <label
+              >Distancia (km)<input
+                id="distance"
+                type="number"
+                min="0"
+                step="any"
+                value="320"
+                required
+            /></label>
+            <label
+              >Prioridad<select id="priority">
+                <option>Standard</option>
+                <option selected>Express</option>
+                <option>Same-day</option>
+              </select></label
+            >
+            <button class="primary sm:col-span-2 lg:col-span-4" type="submit">
+              Calcular opciones
+            </button>
+            <p id="carrier-feedback" class="result sm:col-span-2 lg:col-span-4" role="status"></p>
+          </form>
+          <div id="carrier-results" class="mt-6 grid gap-4 sm:grid-cols-3"></div>
+          <p id="carrier-choice" class="mt-5 text-lg font-semibold" role="status"></p>
+          <p class="mt-3 max-w-3xl text-sm leading-6 text-neutral-400">
+            La regla del ejercicio elige el menor coste entre puntuaciones de 50 o más. Un país no
+            cubierto resta puntos, pero no excluye al transportista. Comprueba la cobertura antes de
+            interpretar la selección.
+          </p>
+        </section>
+        <section id="validation" hidden aria-labelledby="validation-title">
+          <h2 id="validation-title" class="text-xl font-semibold">Validar datos</h2>
+          <p class="mt-2 text-sm text-neutral-400">
+            Edita un ejemplo para comprobar sus campos y reglas. Las fechas se reciben como texto
+            ISO y se convierten a Date.
+          </p>
+          <form id="validation-form" class="panel mt-5">
+            <label
+              >Entidad<select id="entity">
+                <option value="product">Producto</option>
+                <option value="shipment">Envío</option>
+                <option value="carrier">Transportista</option>
+              </select></label
+            >
+            <label class="mt-4"
+              >Datos JSON<textarea
+                id="json-input"
+                class="min-h-80 font-mono text-sm"
+                spellcheck="false"
+              ></textarea>
+            </label>
+            <div class="mt-4 flex flex-wrap gap-3">
+              <button class="primary" type="submit">Validar datos</button
+              ><button id="invalid-example" class="secondary" type="button">
+                Cargar ejemplo inválido</button
+              ><button id="valid-example" class="secondary" type="button">Restaurar ejemplo</button>
+            </div>
+            <div id="validation-result" class="result" role="status"></div>
+          </form>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/logistics/main.ts"></script>
+  </body>
+</html>
