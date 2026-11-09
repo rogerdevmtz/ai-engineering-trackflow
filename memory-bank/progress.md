@@ -1478,7 +1478,7 @@ Todo local en feature/domain-models; sin commit/push ni archivos protegidos
 modificados. Entrega preparada; pendiente autorización de subida y PR, seguida
 de la entrega de su URL en el campus.
 
-## 09/11/2026 — Publicación del hito autorizada
+## 09/11/2026 — Hito publicado en PR #3
 
 El estudiante autoriza commit, subida de feature/domain-models y PR a main del
 fork, con capturas y descripción concisa. Repetidos tipos, 33/33 pruebas, demo
@@ -1487,5 +1487,12 @@ correctos. La revisión visual previa corresponde al mismo código, sin cambios
 de aplicación en esta preparación. Main remoto comprobado en c6046e6; no hay
 otra PR abierta desde esta rama. Memoria local previa preservada.
 
-Aplicada update-project-memory. Próximo paso: publicar y verificar la PR;
-la entrega de su URL en el campus y la fusión posterior siguen pendientes.
+Commit 488ff51 publicado en origin/feature/domain-models. Creada y comprobada
+[PR #3](https://github.com/rogerdevmtz/ai-engineering-trackflow/pull/3), abierta
+y lista para revisión hacia main del fork. Descripción concisa y cinco capturas
+HD con URLs públicas verificadas. PR enlazada al chat; sin merge ni publicación
+en cPanel/Codespaces. Matriz actualizada con el enlace de entrega en lugar del
+borrador, conservando las evidencias y la memoria previa.
+
+Aplicada update-project-memory. Próximo paso: entregar la URL en el campus y
+atender la revisión; la fusión posterior sigue pendiente.

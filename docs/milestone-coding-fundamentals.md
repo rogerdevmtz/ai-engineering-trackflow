@@ -1,8 +1,7 @@
 # TrackFlow — Fundamentos de programación
 
-Revisión: 09/11/2026. Implementación y comprobaciones locales completadas.
-Estudiante autoriza commit, subida de feature/domain-models y PR hacia main.
-La entrega de la URL en el campus queda pendiente.
+Revisión: 09/11/2026. Implementación verificada y rama publicada.
+PR hacia main abierta; la entrega de su URL en el campus queda pendiente.
 
 ## Fuentes y alcance
 
@@ -276,7 +275,7 @@ No se certifica accesibilidad completa, lector de pantalla, móvil físico ni
 otros motores. Repetidos en la preparación del commit: tipos, 33 pruebas, demo
 y lint del paquete; lint/build de ambas apps y 14 pruebas del website, correctos.
 La revisión visual anterior corresponde a la misma versión de las aplicaciones.
-Publicación de la rama y PR autorizadas; entrega en campus pendiente.
+Rama publicada y PR abierta tras autorización; entrega en campus pendiente.
 La observación del scoring sigue visible en README y en la página;
 no impide comprobar el contrato literal.
 
@@ -293,23 +292,12 @@ imagen. Móvil emulado a 390 × 844 con DPR 3; no representa un dispositivo fís
 | Resumen operativo y reporte | [Móvil](evidence/coding-report-mobile.png) | 1170 × 2532 |
 | Última búsqueda con resumen desplegado | [Móvil](evidence/coding-scroll-mobile.png) | 1170 × 2532 |
 
-## Borrador de PR
+## Entrega Git
 
-Título: **Implementa la lógica logística de TrackFlow**
+[PR #3 — Implementa modelos y utilidades logísticas de TrackFlow](https://github.com/rogerdevmtz/ai-engineering-trackflow/pull/3),
+desde feature/domain-models hacia main del fork personal. Incluye descripción,
+validación y las cinco capturas, cuyas URLs públicas se han comprobado.
+Implementación publicada en el commit 488ff51.
 
-```markdown
-Añade modelos y utilidades TypeScript para inventario, envíos y transportistas,
-con demo ejecutable y laboratorio responsive integrado en el backoffice.
-Incluye confirmaciones de acciones y resultados accesibles.
-
-Resuelve casos vacíos, validaciones anidadas y operaciones sin mutar los datos.
-La selección de transportista conserva la fórmula oficial; su limitación de
-cobertura está documentada y visible en la interfaz.
-
-Verificado: TypeScript estricto, lint, 33 pruebas del paquete, demo, 14 pruebas
-del website y builds de ambas apps. Revisión visual en escritorio y móvil.
-Requisitos y capturas: [matriz de cumplimiento](docs/milestone-coding-fundamentals.md).
-```
-
-Texto preparado para GitHub; la ruta del último enlace es relativa a la raíz
-del repositorio. La PR todavía no se ha creado.
+Pendiente: entregar la URL de la PR en el campus y fusionar tras la revisión
+correspondiente. Crear la PR no acredita la entrega en el campus.
