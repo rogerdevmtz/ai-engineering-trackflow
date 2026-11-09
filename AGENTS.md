@@ -28,8 +28,10 @@ No crear copias de respaldo.
 
 Mantener comunicaciones y entregas profesionales y concisas: explicar el
 resultado, los cambios relevantes y la validación sin repetir información.
-En commits y PR, enlazar la matriz y las evidencias en lugar de copiarlas
-o narrar el historial de trabajo. No presentar pendientes como completados.
+No copiar ni resumir en el repositorio enunciados, rúbricas o instrucciones
+de entrega que ya están en el campus de 4Geeks. Documentar la ejecución,
+el uso y las decisiones técnicas necesarias; presentar las evidencias en la PR.
+No narrar el historial de trabajo ni presentar pendientes como completados.
 
 Realizar únicamente el trabajo correspondiente a la tarea actual.
 

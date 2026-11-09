@@ -1,8 +1,6 @@
 # TrackFlow — Lógica logística
 
-Utilidades TypeScript para inventario, envíos y transportistas. Implementa el
-[BRIEFING del módulo](https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/contexts/02-coding-fundamentals/trackflow-BRIEFING.es.md)
-y la [matriz de cumplimiento](../../docs/milestone-coding-fundamentals.md).
+Utilidades TypeScript para inventario, envíos y transportistas.
 Datos y tarifas de demostración; sin integraciones externas.
 
 ## Ejecutar desde la raíz del repositorio

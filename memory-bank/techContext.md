@@ -45,7 +45,7 @@ API en src/index.ts; ejemplos compartidos por demo, pruebas y laboratorio.
 Node >=24 ejecuta TS nativo, TypeScript 6.0.3 resuelto para typecheck estricto;
 sin dependencias de ejecución. Desde raíz: `pnpm --dir packages/logistics`
 seguido de `install --frozen-lockfile`, `typecheck`, `test` o `demo`.
-Reglas y casos límite en su README; matriz en docs/milestone-coding-fundamentals.md.
+Uso y casos límite documentados en el README del paquete.
 
 `uis/backoffice/logistics.html` es segunda entrada Vite: HTML/Tailwind y
 TypeScript nativo, con lógica importada del paquete mediante rutas relativas
@@ -58,7 +58,7 @@ selección actual y cambiar filtros invalida el resultado anterior. Mensajes
 role=status y confirmación temporal de botones; editar datos de cálculo o JSON indica
 que hay resultados pendientes de actualizar.
 Identidad y controles documentados en uis/STYLE_GUIDE.md; capturas seleccionadas
-enlazadas desde la matriz del hito.
+en docs/evidence y enlazadas desde la PR #3.
 Los pedidos Order y la lógica original del dashboard se conservan.
 La selección reproduce score >=50 y menor coste; no usarla como recomendación
 operativa por la discrepancia de cobertura documentada en el contrato.
