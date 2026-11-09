@@ -109,7 +109,7 @@ export function validateCarrier(carrier: Carrier): ValidationResult {
       options(carrierData.operatesIn, countries) &&
         Array.isArray(carrierData.operatesIn) &&
         carrierData.operatesIn.length > 0,
-      'operatesIn debe contener al menos un paíshipmentData válido',
+      'operatesIn debe contener al menos un país válido',
     ],
     [typeof carrierData.handlesFragile === 'boolean', 'handlesFragile debe ser booleano'],
     [

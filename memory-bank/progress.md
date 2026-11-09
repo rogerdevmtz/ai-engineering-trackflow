@@ -1315,4 +1315,11 @@ AGENTS.md recoge que los enunciados y rúbricas se consultan en 4Geeks.
 El repositorio conserva documentación de uso, decisiones técnicas y evidencias.
 Enlaces y diff de la limpieza documental verificados. No se repiten pruebas
 de aplicación porque su código no cambia. Aplicada update-project-memory.
+
+Revisión final posterior: modelos y firmas contrastados con la fuente, sin
+diferencias. Corregido texto de validación de países; tipos, 33/33 pruebas,
+lint del paquete/backoffice y build del backoffice correctos. Las cinco capturas
+de la PR aparecen ahora visibles, sin desplegables; originales cargados y
+pareja móvil alineada comprobados en GitHub. Descripción breve con alcance,
+desafíos resueltos, comprobaciones locales y enlace al README de uso.
 Próximo paso: entregar la URL de la PR en el campus y atender la revisión.
